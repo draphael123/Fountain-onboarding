@@ -45,6 +45,7 @@
                         <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle dark mode" title="Dark Mode">🌙</button>
                         <button class="theme-toggle" id="highContrastToggle" aria-label="Toggle high contrast" title="High Contrast">🔆</button>
                         <button class="theme-toggle" id="languageToggle" aria-label="Toggle language" title="Language">🌐</button>
+                        <button class="theme-toggle settings-toggle" id="settingsToggle" aria-label="Open settings" title="Settings">⚙️</button>
                     </div>
                 </div>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -61,6 +62,172 @@
             </div>
         </div>
     </nav>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb navigation" id="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li><a href="#home">Home</a></li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal" role="dialog" aria-labelledby="settingsTitle" aria-hidden="true">
+        <div class="settings-modal-content">
+            <div class="settings-header">
+                <h2 id="settingsTitle">Settings</h2>
+                <button class="settings-close" id="settingsClose" aria-label="Close settings">×</button>
+            </div>
+            <div class="settings-body">
+                <div class="settings-section">
+                    <h3>Appearance</h3>
+                    <div class="settings-item">
+                        <label>
+                            <input type="checkbox" id="darkModeSetting" />
+                            <span>Dark Mode</span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <label>
+                            <input type="checkbox" id="highContrastSetting" />
+                            <span>High Contrast</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Analytics</h3>
+                    <div class="settings-item">
+                        <button class="btn btn-secondary" id="viewAnalytics">View Analytics Dashboard</button>
+                    </div>
+                    <div class="settings-item">
+                        <label>
+                            <input type="checkbox" id="enableAnalytics" checked />
+                            <span>Enable Usage Tracking</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Export & Print</h3>
+                    <div class="settings-item">
+                        <button class="btn btn-secondary" id="exportChecklist">Export Checklist</button>
+                    </div>
+                    <div class="settings-item">
+                        <button class="btn btn-secondary" id="exportResources">Export Resources</button>
+                    </div>
+                    <div class="settings-item">
+                        <button class="btn btn-secondary" id="printPage">Print Page</button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Keyboard Shortcuts</h3>
+                    <div class="settings-item">
+                        <label>
+                            <input type="checkbox" id="enableShortcuts" checked />
+                            <span>Enable Keyboard Shortcuts</span>
+                        </label>
+                    </div>
+                    <button class="btn btn-secondary" id="showShortcuts">View Shortcuts</button>
+                </div>
+                <div class="settings-section">
+                    <h3>Data</h3>
+                    <div class="settings-item">
+                        <button class="btn btn-secondary" id="clearData">Clear Local Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Dashboard Modal -->
+    <div class="analytics-modal" id="analyticsModal" role="dialog" aria-labelledby="analyticsTitle" aria-hidden="true">
+        <div class="analytics-modal-content">
+            <div class="analytics-header">
+                <h2 id="analyticsTitle">Analytics Dashboard</h2>
+                <button class="analytics-close" id="analyticsClose" aria-label="Close analytics">×</button>
+            </div>
+            <div class="analytics-body">
+                <div class="analytics-stats">
+                    <div class="stat-card">
+                        <h3>Resources Viewed</h3>
+                        <p class="stat-number" id="resourcesViewedCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>FAQs Opened</h3>
+                        <p class="stat-number" id="faqsOpenedCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Tools Accessed</h3>
+                        <p class="stat-number" id="toolsAccessedCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Time on Site</h3>
+                        <p class="stat-number" id="timeOnSite">0m</p>
+                    </div>
+                </div>
+                <div class="analytics-section">
+                    <h3>Most Viewed Resources</h3>
+                    <div class="analytics-list" id="mostViewedResources">
+                        <p class="no-data">No data available yet</p>
+                    </div>
+                </div>
+                <div class="analytics-section">
+                    <h3>Recent Activity</h3>
+                    <div class="analytics-list" id="recentActivity">
+                        <p class="no-data">No activity recorded</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Modal -->
+    <div class="shortcuts-modal" id="shortcutsModal" role="dialog" aria-labelledby="shortcutsTitle" aria-hidden="true">
+        <div class="shortcuts-modal-content">
+            <div class="shortcuts-header">
+                <h2 id="shortcutsTitle">Keyboard Shortcuts</h2>
+                <button class="shortcuts-close" id="shortcutsClose" aria-label="Close shortcuts">×</button>
+            </div>
+            <div class="shortcuts-body">
+                <div class="shortcut-item">
+                    <kbd>/</kbd>
+                    <span>Focus search</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>?</kbd>
+                    <span>Show shortcuts</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Esc</kbd>
+                    <span>Close modals</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Ctrl/Cmd + K</kbd>
+                    <span>Open settings</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Ctrl/Cmd + P</kbd>
+                    <span>Print page</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>G + H</kbd>
+                    <span>Go to Home</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>G + R</kbd>
+                    <span>Go to Resources</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>G + F</kbd>
+                    <span>Go to FAQ</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>G + T</kbd>
+                    <span>Go to Team</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main id="main-content">
 

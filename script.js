@@ -196,6 +196,10 @@ function initializeFeatures() {
     initResourceTracking();
     initLoadingStates();
     initEmptyStates();
+    initBreadcrumbs();
+    initSettings();
+    initAnalytics();
+    initExportFeatures();
 }
 
 // Announcements
@@ -1188,4 +1192,568 @@ function initFAQ() {
         });
     });
 }
+
+// ============================================
+// BREADCRUMBS NAVIGATION
+// ============================================
+function initBreadcrumbs() {
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    if (!breadcrumbs) return;
+
+    const breadcrumbList = breadcrumbs.querySelector('.breadcrumb-list');
+    
+    // Update breadcrumbs based on current section
+    function updateBreadcrumbs() {
+        const sections = [
+            { id: 'home', name: 'Home' },
+            { id: 'first-day-checklist', name: 'First Day Checklist' },
+            { id: 'resources', name: 'Resources' },
+            { id: 'team', name: 'Team' },
+            { id: 'faq', name: 'FAQ' },
+            { id: 'contact', name: 'Contact' }
+        ];
+
+        const currentSection = getCurrentSection();
+        breadcrumbList.innerHTML = '<li><a href="#home">Home</a></li>';
+
+        if (currentSection && currentSection !== 'home') {
+            const section = sections.find(s => s.id === currentSection);
+            if (section) {
+                breadcrumbList.innerHTML += `<li><a href="#${section.id}">${section.name}</a></li>`;
+            }
+        }
+    }
+
+    function getCurrentSection() {
+        const sections = document.querySelectorAll('section[id], div[id]');
+        const scrollPosition = window.scrollY + 100;
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            const top = section.offsetTop;
+            if (scrollPosition >= top) {
+                return section.id;
+            }
+        }
+        return 'home';
+    }
+
+    // Update on scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateBreadcrumbs, 100);
+    });
+
+    // Update on page load
+    updateBreadcrumbs();
+
+    // Update when clicking navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+            setTimeout(updateBreadcrumbs, 300);
+        });
+    });
+}
+
+// ============================================
+// SETTINGS MODAL
+// ============================================
+function initSettings() {
+    const settingsModal = document.getElementById('settingsModal');
+    const settingsToggle = document.getElementById('settingsToggle');
+    const settingsClose = document.getElementById('settingsClose');
+    const viewAnalytics = document.getElementById('viewAnalytics');
+    const showShortcuts = document.getElementById('showShortcuts');
+    const exportChecklist = document.getElementById('exportChecklist');
+    const exportResources = document.getElementById('exportResources');
+    const printPage = document.getElementById('printPage');
+    const clearData = document.getElementById('clearData');
+    const darkModeSetting = document.getElementById('darkModeSetting');
+    const highContrastSetting = document.getElementById('highContrastSetting');
+    const enableAnalytics = document.getElementById('enableAnalytics');
+    const enableShortcuts = document.getElementById('enableShortcuts');
+
+    if (!settingsModal) return;
+
+    // Load saved settings
+    const savedSettings = JSON.parse(localStorage.getItem('fountainSettings') || '{}');
+    if (darkModeSetting) darkModeSetting.checked = savedSettings.darkMode || false;
+    if (highContrastSetting) highContrastSetting.checked = savedSettings.highContrast || false;
+    if (enableAnalytics) enableAnalytics.checked = savedSettings.analyticsEnabled !== false;
+    if (enableShortcuts) enableShortcuts.checked = savedSettings.shortcutsEnabled !== false;
+
+    // Open settings
+    if (settingsToggle) {
+        settingsToggle.addEventListener('click', () => {
+            settingsModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close settings
+    if (settingsClose) {
+        settingsClose.addEventListener('click', closeSettings);
+    }
+
+    settingsModal.addEventListener('click', (e) => {
+        if (e.target === settingsModal) {
+            closeSettings();
+        }
+    });
+
+    function closeSettings() {
+        settingsModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        saveSettings();
+    }
+
+    // Save settings
+    function saveSettings() {
+        const settings = {
+            darkMode: darkModeSetting?.checked || false,
+            highContrast: highContrastSetting?.checked || false,
+            analyticsEnabled: enableAnalytics?.checked !== false,
+            shortcutsEnabled: enableShortcuts?.checked !== false
+        };
+        localStorage.setItem('fountainSettings', JSON.stringify(settings));
+    }
+
+    // Settings change handlers
+    if (darkModeSetting) {
+        darkModeSetting.addEventListener('change', () => {
+            const darkModeBtn = document.getElementById('darkModeToggle');
+            if (darkModeBtn) {
+                if (darkModeSetting.checked) {
+                    darkModeBtn.click();
+                }
+            }
+            saveSettings();
+        });
+    }
+
+    if (highContrastSetting) {
+        highContrastSetting.addEventListener('change', () => {
+            const contrastBtn = document.getElementById('highContrastToggle');
+            if (contrastBtn) {
+                if (highContrastSetting.checked) {
+                    contrastBtn.click();
+                }
+            }
+            saveSettings();
+        });
+    }
+
+    if (enableAnalytics) {
+        enableAnalytics.addEventListener('change', saveSettings);
+    }
+
+    if (enableShortcuts) {
+        enableShortcuts.addEventListener('change', saveSettings);
+    }
+
+    // View analytics
+    if (viewAnalytics) {
+        viewAnalytics.addEventListener('click', () => {
+            closeSettings();
+            const analyticsModal = document.getElementById('analyticsModal');
+            if (analyticsModal) {
+                analyticsModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                updateAnalyticsDisplay();
+            }
+        });
+    }
+
+    // Show shortcuts
+    if (showShortcuts) {
+        showShortcuts.addEventListener('click', () => {
+            closeSettings();
+            const shortcutsModal = document.getElementById('shortcutsModal');
+            if (shortcutsModal) {
+                shortcutsModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+
+    // Export checklist
+    if (exportChecklist) {
+        exportChecklist.addEventListener('click', exportChecklistToPDF);
+    }
+
+    // Export resources
+    if (exportResources) {
+        exportResources.addEventListener('click', exportResourcesToPDF);
+    }
+
+    // Print page
+    if (printPage) {
+        printPage.addEventListener('click', () => {
+            window.print();
+        });
+    }
+
+    // Clear data
+    if (clearData) {
+        clearData.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear all local data? This includes progress, favorites, and preferences.')) {
+                localStorage.clear();
+                alert('Local data cleared. Page will reload.');
+                window.location.reload();
+            }
+        });
+    }
+
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && settingsModal.getAttribute('aria-hidden') === 'false') {
+            closeSettings();
+        }
+    });
+}
+
+// ============================================
+// ANALYTICS DASHBOARD
+// ============================================
+function initAnalytics() {
+    const analyticsModal = document.getElementById('analyticsModal');
+    const analyticsClose = document.getElementById('analyticsClose');
+
+    if (!analyticsModal) return;
+
+    // Close analytics
+    if (analyticsClose) {
+        analyticsClose.addEventListener('click', () => {
+            analyticsModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+    }
+
+    analyticsModal.addEventListener('click', (e) => {
+        if (e.target === analyticsModal) {
+            analyticsModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Track page views
+    trackPageView();
+
+    // Track resource views
+    document.querySelectorAll('a[data-resource-id]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackResourceView(link.getAttribute('data-resource-id'));
+        });
+    });
+
+    // Track FAQ opens
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            if (faqItem && !faqItem.classList.contains('active')) {
+                trackFAQOpen();
+            }
+        });
+    });
+
+    // Track tool access
+    document.querySelectorAll('.integration-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const toolName = card.querySelector('h3')?.textContent || 'Unknown';
+            trackToolAccess(toolName);
+        });
+    });
+
+    // Track time on site
+    let startTime = Date.now();
+    setInterval(() => {
+        const timeSpent = Math.floor((Date.now() - startTime) / 1000 / 60);
+        updateTimeOnSite(timeSpent);
+    }, 60000);
+}
+
+function trackPageView() {
+    const analytics = getAnalytics();
+    analytics.pageViews = (analytics.pageViews || 0) + 1;
+    analytics.lastVisit = new Date().toISOString();
+    saveAnalytics(analytics);
+}
+
+function trackResourceView(resourceId) {
+    const analytics = getAnalytics();
+    if (!analytics.resourceViews) analytics.resourceViews = {};
+    analytics.resourceViews[resourceId] = (analytics.resourceViews[resourceId] || 0) + 1;
+    saveAnalytics(analytics);
+    updateAnalyticsDisplay();
+}
+
+function trackFAQOpen() {
+    const analytics = getAnalytics();
+    analytics.faqOpens = (analytics.faqOpens || 0) + 1;
+    saveAnalytics(analytics);
+    updateAnalyticsDisplay();
+}
+
+function trackToolAccess(toolName) {
+    const analytics = getAnalytics();
+    if (!analytics.toolAccesses) analytics.toolAccesses = {};
+    analytics.toolAccesses[toolName] = (analytics.toolAccesses[toolName] || 0) + 1;
+    saveAnalytics(analytics);
+    updateAnalyticsDisplay();
+}
+
+function updateTimeOnSite(minutes) {
+    const timeElement = document.getElementById('timeOnSite');
+    if (timeElement) {
+        timeElement.textContent = `${minutes}m`;
+    }
+}
+
+function getAnalytics() {
+    return JSON.parse(localStorage.getItem('fountainAnalytics') || '{}');
+}
+
+function saveAnalytics(analytics) {
+    localStorage.setItem('fountainAnalytics', JSON.stringify(analytics));
+}
+
+function updateAnalyticsDisplay() {
+    const analytics = getAnalytics();
+    
+    // Update stats
+    const resourcesViewed = Object.keys(analytics.resourceViews || {}).length;
+    const faqsOpened = analytics.faqOpens || 0;
+    const toolsAccessed = Object.keys(analytics.toolAccesses || {}).length;
+    
+    const resourcesViewedEl = document.getElementById('resourcesViewedCount');
+    const faqsOpenedEl = document.getElementById('faqsOpenedCount');
+    const toolsAccessedEl = document.getElementById('toolsAccessedCount');
+    
+    if (resourcesViewedEl) resourcesViewedEl.textContent = resourcesViewed;
+    if (faqsOpenedEl) faqsOpenedEl.textContent = faqsOpened;
+    if (toolsAccessedEl) toolsAccessedEl.textContent = toolsAccessed;
+
+    // Update most viewed resources
+    const mostViewedEl = document.getElementById('mostViewedResources');
+    if (mostViewedEl) {
+        const resourceViews = analytics.resourceViews || {};
+        const sorted = Object.entries(resourceViews)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5);
+        
+        if (sorted.length === 0) {
+            mostViewedEl.innerHTML = '<p class="no-data">No data available yet</p>';
+        } else {
+            mostViewedEl.innerHTML = sorted.map(([id, count]) => {
+                const resource = contentData.resources?.find(r => r.id == id);
+                return `<div class="analytics-list-item">
+                    <span>${resource?.title || `Resource ${id}`}</span>
+                    <span>${count} views</span>
+                </div>`;
+            }).join('');
+        }
+    }
+
+    // Update recent activity
+    const recentActivityEl = document.getElementById('recentActivity');
+    if (recentActivityEl) {
+        const activities = analytics.recentActivities || [];
+        if (activities.length === 0) {
+            recentActivityEl.innerHTML = '<p class="no-data">No activity recorded</p>';
+        } else {
+            recentActivityEl.innerHTML = activities.slice(-10).reverse().map(activity => {
+                return `<div class="analytics-list-item">
+                    <span>${activity.action}</span>
+                    <span>${new Date(activity.timestamp).toLocaleString()}</span>
+                </div>`;
+            }).join('');
+        }
+    }
+}
+
+// ============================================
+// EXPORT FEATURES
+// ============================================
+function initExportFeatures() {
+    // Export functionality is handled in settings
+}
+
+function exportChecklistToPDF() {
+    const checklistData = contentData.firstDayChecklist || [];
+    const roleTasks = contentData.roleDayOneTasks || {};
+    
+    let content = '<h1>Fountain Onboarding Checklist</h1>';
+    content += '<h2>General First Day Checklist</h2><ul>';
+    checklistData.forEach(item => {
+        content += `<li>${item.required ? '✓' : '○'} ${item.task} (${item.category})</li>`;
+    });
+    content += '</ul>';
+
+    Object.keys(roleTasks).forEach(role => {
+        content += `<h2>${role} Day One Tasks</h2><ul>`;
+        roleTasks[role].forEach(task => {
+            content += `<li>${task.required ? '✓' : '○'} ${task.task} (${task.category})</li>`;
+        });
+        content += '</ul>';
+    });
+
+    printContent(content, 'Fountain-Onboarding-Checklist');
+}
+
+function exportResourcesToPDF() {
+    const resources = contentData.resources || [];
+    
+    let content = '<h1>Fountain Resources</h1>';
+    resources.forEach(resource => {
+        content += `<h2>${resource.title}</h2>`;
+        content += `<p><strong>Category:</strong> ${resource.category}</p>`;
+        content += `<p><strong>Type:</strong> ${resource.type}</p>`;
+        content += `<p><strong>URL:</strong> ${resource.url}</p>`;
+        content += `<p><strong>Last Updated:</strong> ${resource.lastUpdated}</p>`;
+        content += '<hr>';
+    });
+
+    printContent(content, 'Fountain-Resources');
+}
+
+function printContent(content, title) {
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${title}</title>
+            <style>
+                body { font-family: Arial, sans-serif; padding: 20px; }
+                h1 { color: #0066cc; }
+                h2 { color: #0052a3; margin-top: 20px; }
+                ul { list-style: none; padding-left: 0; }
+                li { margin: 10px 0; padding-left: 20px; }
+                hr { margin: 20px 0; border: 1px solid #e0e0e0; }
+            </style>
+        </head>
+        <body>
+            ${content}
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => {
+        printWindow.print();
+    }, 250);
+}
+
+// ============================================
+// KEYBOARD SHORTCUTS (Enhanced)
+// ============================================
+function initKeyboardShortcutsEnhanced() {
+    const shortcutsModal = document.getElementById('shortcutsModal');
+    const shortcutsClose = document.getElementById('shortcutsClose');
+    
+    if (!shortcutsModal) return;
+
+    // Close shortcuts
+    if (shortcutsClose) {
+        shortcutsClose.addEventListener('click', () => {
+            shortcutsModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+    }
+
+    shortcutsModal.addEventListener('click', (e) => {
+        if (e.target === shortcutsModal) {
+            shortcutsModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Check if shortcuts are enabled
+    const settings = JSON.parse(localStorage.getItem('fountainSettings') || '{}');
+    if (settings.shortcutsEnabled === false) return;
+
+    let keySequence = [];
+    let sequenceTimeout;
+
+    document.addEventListener('keydown', (e) => {
+        // Ignore if typing in input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+            if (e.key === 'Escape') {
+                e.target.blur();
+            }
+            return;
+        }
+
+        // Single key shortcuts
+        if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.focus();
+            }
+        }
+
+        if (e.key === '?' && !e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            shortcutsModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        if (e.key === 'Escape') {
+            // Close any open modals
+            document.querySelectorAll('[role="dialog"][aria-hidden="false"]').forEach(modal => {
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Ctrl/Cmd shortcuts
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            const settingsToggle = document.getElementById('settingsToggle');
+            if (settingsToggle) settingsToggle.click();
+        }
+
+        if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+            e.preventDefault();
+            window.print();
+        }
+
+        // G key navigation (g + letter)
+        if (e.key.toLowerCase() === 'g' && !e.ctrlKey && !e.metaKey) {
+            keySequence.push('g');
+            clearTimeout(sequenceTimeout);
+            sequenceTimeout = setTimeout(() => {
+                keySequence = [];
+            }, 1000);
+        } else if (keySequence.length === 1 && keySequence[0] === 'g') {
+            const key = e.key.toLowerCase();
+            e.preventDefault();
+            
+            switch(key) {
+                case 'h':
+                    document.querySelector('a[href="#home"]')?.click();
+                    break;
+                case 'r':
+                    document.querySelector('a[href="#resources"]')?.click();
+                    break;
+                case 'f':
+                    document.querySelector('a[href="#faq"]')?.click();
+                    break;
+                case 't':
+                    document.querySelector('a[href="#team"]')?.click();
+                    break;
+            }
+            keySequence = [];
+        }
+    });
+}
+
+// Enhanced keyboard shortcuts (runs after existing initKeyboardShortcuts)
+// The existing initKeyboardShortcuts is called in initializeFeatures()
+// This enhanced version adds additional shortcuts
+setTimeout(() => {
+    initKeyboardShortcutsEnhanced();
+}, 100);
 
