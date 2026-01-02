@@ -181,7 +181,6 @@ function initializeFeatures() {
     initFAQ();
     initGlossary();
     initTimeline();
-    initIntegrations();
     initResourceFilters();
     initResourceRatings();
     initRelatedResources();
