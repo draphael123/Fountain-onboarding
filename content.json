@@ -136,6 +136,78 @@
     {
       "question": "What should I do if I have questions about the contractor policies?",
       "answer": "If you have questions about the Fountain Contractor Policies, first review the complete document in the Essential Resources section. For clarification or specific situations not covered in the document, contact HR at hr@fountain.net. It's important to understand these policies as they govern your work relationship with Fountain."
+    },
+    {
+      "question": "How will I be paid as a contractor?",
+      "answer": "Payment terms and schedules are detailed in the Fountain Contractor Policies document. This includes information about payment frequency, methods, and any required documentation. Review the Contractor Policies document in the Essential Resources section for complete payment details. For payment questions, contact HR at hr@fountain.net."
+    },
+    {
+      "question": "What are my responsibilities regarding patient confidentiality?",
+      "answer": "Patient confidentiality is a critical component of the Fountain Professional Standards. All team members must maintain strict confidentiality of patient information in accordance with HIPAA regulations. The Professional Standards document outlines specific requirements for handling patient data, communication, and documentation. Review this document carefully and contact HR at hr@fountain.net with any questions."
+    },
+    {
+      "question": "What should I do if I can't access a system I need for my work?",
+      "answer": "If you're unable to access a required system, first check the Systems Doc in the Essential Resources section for troubleshooting steps and access requirements. If the issue persists, contact IT Support at it-support@fountain.net with details about the system, your role, and any error messages you're seeing. For urgent access needs, you can also reach out to Daniel Raphael on Slack."
+    },
+    {
+      "question": "Are there specific quality standards I need to meet in my work?",
+      "answer": "Yes, Fountain maintains high quality standards for all work performed. The Fountain Professional Standards document outlines quality expectations, performance metrics, and standards for patient care and service delivery. All team members are expected to meet these standards consistently. Review the Professional Standards document for detailed requirements."
+    },
+    {
+      "question": "What happens if I need to terminate my contractor relationship with Fountain?",
+      "answer": "Termination procedures and notice requirements are outlined in the Fountain Contractor Policies document. This includes information about notice periods, final payment, and return of company property. Review the Contractor Policies document for complete details. If you're considering termination, contact HR at hr@fountain.net to discuss the process."
+    },
+    {
+      "question": "How do I report a compliance or ethical concern?",
+      "answer": "If you have a compliance or ethical concern, refer to the Fountain Professional Standards document for reporting procedures. You can also contact HR at hr@fountain.net or reach out to your manager. Fountain takes compliance and ethical concerns seriously and has procedures in place to address them confidentially."
+    },
+    {
+      "question": "What training or certifications do I need to maintain?",
+      "answer": "Training and certification requirements vary by role and are detailed in the Fountain Professional Standards document. This includes required licenses, continuing education, and role-specific training. Review the Professional Standards document and your role-specific day one checklist for your specific requirements. Contact HR at hr@fountain.net with questions about certification maintenance."
+    },
+    {
+      "question": "How do I request access to additional systems or tools?",
+      "answer": "To request access to additional systems or tools, first review the Systems Doc to understand available systems and their purposes. Then contact IT Support at it-support@fountain.net with your request, including your role, the system you need, and the business justification. Your manager may need to approve certain access requests."
+    },
+    {
+      "question": "What are the expectations for work hours and availability?",
+      "answer": "Work hours and availability expectations are outlined in the Fountain Contractor Policies document. This includes information about scheduled hours, on-call requirements (if applicable), and communication expectations. Review the Contractor Policies document for your specific role requirements. Contact HR at hr@fountain.net with questions about scheduling."
+    },
+    {
+      "question": "How should I handle conflicts of interest?",
+      "answer": "Conflicts of interest policies are detailed in the Fountain Professional Standards document. All team members must disclose any potential conflicts of interest. Review the Professional Standards document for complete guidelines and disclosure procedures. If you have questions about a potential conflict, contact HR at hr@fountain.net."
+    },
+    {
+      "question": "What security measures do I need to follow when using company systems?",
+      "answer": "Security requirements and best practices are outlined in the Systems Doc. This includes password policies, two-factor authentication, secure access methods, and data protection requirements. All team members must follow these security protocols. Review the Systems Doc for detailed security guidelines and contact IT Support at it-support@fountain.net with security concerns."
+    },
+    {
+      "question": "Can I work for other companies while contracting with Fountain?",
+      "answer": "Non-compete and exclusivity requirements are detailed in the Fountain Contractor Policies document. Review this document carefully to understand any restrictions on working with other companies. If you have questions about your specific situation, contact HR at hr@fountain.net for clarification."
+    },
+    {
+      "question": "What should I do if I make an error in patient documentation?",
+      "answer": "Error correction procedures for patient documentation are outlined in the Fountain Professional Standards document. It's important to follow proper correction protocols to maintain accurate records and compliance. Review the Professional Standards document for correction procedures. If you're unsure how to correct an error, contact your manager or HR at hr@fountain.net."
+    },
+    {
+      "question": "How do I stay updated on system changes and new tools?",
+      "answer": "The Systems Doc is regularly updated with information about system changes and new tools. Check this document periodically for updates. You'll also receive notifications about significant system changes through company communications. For questions about system updates, contact IT Support at it-support@fountain.net."
+    },
+    {
+      "question": "What are the expectations for professional boundaries with patients?",
+      "answer": "Professional boundaries with patients are a critical component of the Fountain Professional Standards. The document outlines appropriate boundaries, communication guidelines, and ethical considerations when interacting with patients. All team members must maintain appropriate professional boundaries. Review the Professional Standards document for detailed guidelines."
+    },
+    {
+      "question": "What happens if I need to take time off or have scheduling conflicts?",
+      "answer": "Time off and scheduling policies for contractors are outlined in the Fountain Contractor Policies document. This includes procedures for requesting time off, handling scheduling conflicts, and coverage requirements. Review the Contractor Policies document for your specific role's requirements. Contact HR at hr@fountain.net or your manager with scheduling questions."
+    },
+    {
+      "question": "How do I ensure I'm following all compliance requirements?",
+      "answer": "Compliance requirements are detailed across multiple documents. Review the Fountain Contractor Policies, Fountain Professional Standards, and Systems Doc for comprehensive compliance information. These documents cover legal requirements, regulatory compliance, and company policies. If you have compliance questions, contact HR at hr@fountain.net."
+    },
+    {
+      "question": "What should I do if I suspect a system security breach?",
+      "answer": "If you suspect a security breach, immediately contact IT Support at it-support@fountain.net and your manager. Do not attempt to investigate on your own. Security incident procedures are outlined in the Systems Doc. Report any suspicious activity, unauthorized access, or potential data breaches immediately."
     }
   ],
   "glossary": [
