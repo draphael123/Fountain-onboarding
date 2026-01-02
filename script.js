@@ -179,7 +179,6 @@ function initializeFeatures() {
     initSearch();
     initThemeControls();
     initFAQ();
-    initGlossary();
     initTimeline();
     initResourceFilters();
     initResourceRatings();
