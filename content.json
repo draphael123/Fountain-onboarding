@@ -308,6 +308,12 @@
   },
   "integrations": [
     {
+      "name": "Systems Doc",
+      "url": "https://docs.google.com/document/d/1dXIr-i2el4GPmvXuDTjSvD7boh1j_XyHY8sJ03xtDIg/edit?tab=t.7o24scjh5yuj#heading=h.ymrggzhy6n8k",
+      "icon": "📄",
+      "description": "Comprehensive guide to all systems and tools"
+    },
+    {
       "name": "Slack",
       "url": "https://slack.com/",
       "icon": "💬",
