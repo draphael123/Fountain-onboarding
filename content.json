@@ -309,15 +309,39 @@
   "integrations": [
     {
       "name": "Slack",
-      "url": "https://app.slack.com/client/T013TB68ABD/C013RPA089K",
+      "url": "https://slack.com/",
       "icon": "💬",
       "description": "Team communication platform"
     },
     {
       "name": "Gusto",
-      "url": "https://login.gusto.com/realms/zenpayroll/protocol/openid-connect/auth?alert=&client_id=zenpayroll&device_uuid=e69a3d3e-3e42-40f5-81f8-34c342986f48&redirect_uri=https%3A%2F%2Fapp.gusto.com%2Fuser%2Fauth%2Fkeycloak_openid%2Fcallback&response_type=code&scope=openid&session_key=JWeN%2FBkOY92C9aK6UuZg3q36x68HduTedWugF7qoG50%3D&state=abc121340bc2f00aec7c8dfcf1c031e245a93dc8fde29aae",
+      "url": "https://login.gusto.com/",
       "icon": "💰",
       "description": "Payroll and benefits portal"
+    },
+    {
+      "name": "Akute",
+      "url": "https://www.akutehealth.com/",
+      "icon": "🏥",
+      "description": "EHR system for patient care"
+    },
+    {
+      "name": "Doxy",
+      "url": "https://fountain.doxy.me/",
+      "icon": "📹",
+      "description": "Telehealth video platform"
+    },
+    {
+      "name": "Intercom",
+      "url": "https://www.intercom.com/",
+      "icon": "💬",
+      "description": "Customer messaging platform"
+    },
+    {
+      "name": "Heidi",
+      "url": "https://www.heidihealth.com/en-us/download",
+      "icon": "📱",
+      "description": "Healthcare mobile application"
     }
   ],
   "timeline": [
