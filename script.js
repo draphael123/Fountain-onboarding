@@ -160,7 +160,9 @@ fetch('content.json')
             faq: [],
             glossary: [],
             integrations: [],
-            timeline: []
+            timeline: [],
+            firstDayChecklist: [],
+            roleDayOneTasks: {}
         };
         initializeFeatures();
     });
