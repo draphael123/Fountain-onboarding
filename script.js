@@ -704,9 +704,8 @@ function renderOriginalChecklist() {
 }
 
 function initFirstDayChecklist() {
-    renderOriginalChecklist();
-    // Handle role-specific buttons
-    initRoleSpecificChecklist();
+    // Role-specific checklists are now on separate pages
+    // No need to render general checklist here
 }
 
 // Role-Specific Checklist
