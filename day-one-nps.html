@@ -95,7 +95,6 @@
             .then(data => {
                 const roleTasks = data.roleDayOneTasks?.NPs || [];
                 const checklistContainer = document.getElementById('checklistContainer');
-                const savedProgress = JSON.parse(localStorage.getItem('checklistProgress-NPs') || '{}');
                 
                 if (roleTasks.length === 0) {
                     checklistContainer.innerHTML = '<div class="empty-state"><p>No tasks available for NPs at this time.</p></div>';
@@ -103,9 +102,6 @@
                 }
                 
                 checklistContainer.innerHTML = roleTasks.map((item, index) => {
-                    const isChecked = savedProgress[index] || false;
-                    const taskId = `role-checklist-NPs-${index}`;
-                    
                     let taskContent = `<h4>${item.task}</h4>`;
                     
                     if (item.url) {
@@ -118,8 +114,7 @@
                     }
                     
                     return `
-                        <div class="checklist-item ${isChecked ? 'completed' : ''}" data-index="${index}">
-                            <input type="checkbox" class="checklist-checkbox" ${isChecked ? 'checked' : ''} id="${taskId}">
+                        <div class="checklist-item" data-index="${index}">
                             <div class="checklist-content">
                                 ${taskContent}
                                 <div class="checklist-meta">
@@ -130,22 +125,6 @@
                         </div>
                     `;
                 }).join('');
-                
-                // Add event listeners for checkboxes
-                checklistContainer.querySelectorAll('.checklist-checkbox').forEach((checkbox, index) => {
-                    checkbox.addEventListener('change', () => {
-                        const item = checkbox.closest('.checklist-item');
-                        const progress = JSON.parse(localStorage.getItem('checklistProgress-NPs') || '{}');
-                        progress[index] = checkbox.checked;
-                        localStorage.setItem('checklistProgress-NPs', JSON.stringify(progress));
-                        
-                        if (checkbox.checked) {
-                            item.classList.add('completed');
-                        } else {
-                            item.classList.remove('completed');
-                        }
-                    });
-                });
             })
             .catch(err => {
                 console.error('Error loading NPs tasks:', err);
