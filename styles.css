@@ -1854,6 +1854,7 @@ body.high-contrast * {
 }
 
 .checklist-role-btn {
+    display: inline-block;
     padding: 0.875rem 2rem;
     border-radius: 8px;
     font-weight: 600;
@@ -1864,6 +1865,8 @@ body.high-contrast * {
     color: var(--primary-color);
     cursor: pointer;
     font-family: inherit;
+    text-decoration: none;
+    text-align: center;
 }
 
 .checklist-role-btn:hover {
