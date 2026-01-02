@@ -6,7 +6,6 @@ const urlsToCache = [
   '/styles.css',
   '/script.js',
   '/logo.svg',
-  '/role-training.html',
   '/team.html'
 ];
 
