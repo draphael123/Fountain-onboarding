@@ -188,7 +188,6 @@ function initializeFeatures() {
     initLazyLoading();
     initFirstDayChecklist();
     initRecentlyViewed();
-    initNewResources();
     initResourceCategories();
     initPrintButtons();
     initShareButtons();
@@ -1116,8 +1115,7 @@ function initLoadingStates() {
 function initEmptyStates() {
     // Check for empty sections and show empty states
     const sections = [
-        { id: 'recentlyViewedGrid', message: 'No recently viewed resources yet.' },
-        { id: 'newResourcesGrid', message: 'No new resources at this time.' }
+        { id: 'recentlyViewedGrid', message: 'No recently viewed resources yet.' }
     ];
     
     sections.forEach(section => {
