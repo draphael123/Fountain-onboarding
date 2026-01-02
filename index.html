@@ -3,116 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fountain Onboarding Portal - Your guide to tools, platforms, rules, and policies for new team members.">
+    <meta name="keywords" content="Fountain, onboarding, employee portal, training, resources">
+    <meta property="og:title" content="Fountain Onboarding - New Hire Portal">
+    <meta property="og:description" content="Welcome to Fountain. Your onboarding portal for tools, platforms, rules, and policies.">
+    <meta property="og:type" content="website">
     <title>Fountain Onboarding - New Hire Portal</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
+    <!-- Analytics placeholder - replace with your tracking ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">
-                    <h1>Fountain</h1>
-                    <span class="logo-subtitle">Onboarding</span>
+                <a href="index.html" class="logo-link" aria-label="Fountain Home">
+                    <div class="logo">
+                        <img src="logo.svg" alt="Fountain Logo" class="logo-image" />
+                        <div class="logo-text">
+                            <h1>Fountain</h1>
+                            <span class="logo-subtitle">Onboarding</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="nav-controls">
+                    <div class="search-container">
+                        <input type="search" id="searchInput" class="search-input" placeholder="Search resources..." aria-label="Search">
+                        <button class="search-toggle" aria-label="Toggle search" id="searchToggle">🔍</button>
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                    <div class="theme-controls">
+                        <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle dark mode" title="Dark Mode">🌙</button>
+                        <button class="theme-toggle" id="highContrastToggle" aria-label="Toggle high contrast" title="High Contrast">🔆</button>
+                        <button class="theme-toggle" id="languageToggle" aria-label="Toggle language" title="Language">🌐</button>
+                    </div>
                 </div>
-                <ul class="nav-menu">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#getting-started">Getting Started</a></li>
                     <li><a href="#resources">Resources</a></li>
                     <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Help</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#glossary">Glossary</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <main id="main-content">
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcementBanner" role="alert">
+        <div class="container">
+            <div class="announcement-content">
+                <span class="announcement-icon">📢</span>
+                <span class="announcement-text" id="announcementText"></span>
+                <button class="announcement-close" id="announcementClose" aria-label="Dismiss announcement">×</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Welcome to Fountain</h1>
-                <p class="hero-subtitle">We're excited to have you join our team! This onboarding portal will guide you through your first days at Fountain.</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">Day 1</div>
-                        <div class="stat-label">Start Here</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">30 Days</div>
-                        <div class="stat-label">Full Onboarding</div>
-                    </div>
-                </div>
-                <a href="#getting-started" class="btn btn-primary">Begin Onboarding</a>
+                <p class="hero-subtitle">We're excited to have you on our team. This onboarding portal will guide you through basic tools, platforms, rules, and policies that we have here, and we'll help you get started.</p>
             </div>
         </div>
     </section>
 
-    <!-- Getting Started Section -->
-    <section id="getting-started" class="onboarding">
+    <!-- Welcome Video Section -->
+    <section class="welcome-video">
         <div class="container">
             <div class="section-header">
-                <h2>Your Onboarding Journey</h2>
-                <p>Follow these steps to get up to speed quickly</p>
+                <h2>Welcome Message</h2>
+                <p>Hear from our leadership team</p>
             </div>
-
-            <div class="onboarding-steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>First Day Essentials</h3>
-                        <p>Complete your new hire paperwork, set up your accounts, and get familiar with your workspace and tools.</p>
-                        <ul class="step-list">
-                            <li>✓ Complete HR paperwork</li>
-                            <li>✓ Set up email and accounts</li>
-                            <li>✓ Review employee handbook</li>
-                            <li>✓ Meet your manager</li>
-                        </ul>
-                    </div>
+            <div class="video-container">
+                <div class="video-placeholder" id="videoPlaceholder">
+                    <div class="video-icon">▶</div>
+                    <p>Welcome video will be displayed here</p>
+                    <p class="video-note">Add your video embed code or URL</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Company Overview</h3>
-                        <p>Learn about Fountain's mission, values, culture, and how we deliver exceptional healthcare to our members.</p>
-                        <ul class="step-list">
-                            <li>✓ Company mission & values</li>
-                            <li>✓ Organizational structure</li>
-                            <li>✓ Our products & services</li>
-                            <li>✓ Company culture</li>
-                        </ul>
-                    </div>
+    <!-- First Day Checklist Section -->
+    <section id="first-day-checklist" class="checklist-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>First Day Checklist</h2>
+                <p>Complete these tasks to get started</p>
+            </div>
+            <div class="checklist-container" id="checklistContainer">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div class="checklist-buttons">
+                <button class="checklist-role-btn" data-role="NPs">NPs</button>
+                <button class="checklist-role-btn" data-role="RNS">RNS</button>
+                <button class="checklist-role-btn" data-role="CS">CS</button>
+                <button class="checklist-role-btn" data-role="MAs">MAs</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed Section -->
+    <section id="recently-viewed" class="recently-viewed-section" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recently Viewed</h2>
+                <p>Quick access to resources you've visited</p>
+            </div>
+            <div class="recently-viewed-grid" id="recentlyViewedGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- New Resources Section -->
+    <section id="new-resources" class="new-resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>New & Updated Resources</h2>
+                <p>Recently added or updated content</p>
+            </div>
+            <div class="new-resources-grid" id="newResourcesGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Links</h2>
+                <p>Frequently accessed resources</p>
+            </div>
+            <div class="quick-links-grid">
+                <a href="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="quick-link-card" data-resource-id="1" data-category="HR & Policies">
+                    <span class="quick-link-icon">📋</span>
+                    <h3>Contractor Policies</h3>
+                    <span class="resource-type">Google Doc</span>
+                </a>
+                <a href="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.5m8jshjoklog#heading=h.dkj3k3ikp9uc" target="_blank" rel="noopener noreferrer" class="quick-link-card" data-resource-id="2" data-category="HR & Policies">
+                    <span class="quick-link-icon">⭐</span>
+                    <h3>Professional Standards</h3>
+                    <span class="resource-type">Google Doc</span>
+                </a>
+                <a href="https://docs.google.com/document/d/1dXIr-i2el4GPmvXuDTjSvD7boh1j_XyHY8sJ03xtDIg/edit?tab=t.7o24scjh5yuj#heading=h.ymrggzhy6n8k" target="_blank" rel="noopener noreferrer" class="quick-link-card" data-resource-id="3" data-category="Tools & Systems">
+                    <span class="quick-link-icon">💻</span>
+                    <h3>Systems Doc</h3>
+                    <span class="resource-type">Google Doc</span>
+                </a>
+                <a href="role-training.html" class="quick-link-card">
+                    <span class="quick-link-icon">🎓</span>
+                    <h3>Role Training</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role-Specific Training Section -->
+    <section id="role-training" class="onboarding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Role-Specific Training</h2>
+            </div>
+            <div class="action-card">
+                <div class="action-card-content">
+                    <h3>Role-Specific Training</h3>
+                    <p>Access training materials tailored to your specific role at Fountain.</p>
+                    <a href="role-training.html" class="btn btn-primary btn-with-margin">View Training Categories</a>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>Role-Specific Training</h3>
-                        <p>Get up to speed on your specific role, tools, processes, and how your work contributes to our mission.</p>
-                        <ul class="step-list">
-                            <li>✓ Role responsibilities</li>
-                            <li>✓ Tools & systems training</li>
-                            <li>✓ Process documentation</li>
-                            <li>✓ Performance expectations</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <h3>Meet the Team</h3>
-                        <p>Connect with your colleagues, understand team dynamics, and start building relationships across the organization.</p>
-                        <ul class="step-list">
-                            <li>✓ Team introductions</li>
-                            <li>✓ Cross-functional meetings</li>
-                            <li>✓ Buddy/mentor assignment</li>
-                            <li>✓ Social events</li>
-                        </ul>
-                    </div>
+    <!-- Meet the Team Section -->
+    <section id="team" class="onboarding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet the Team</h2>
+            </div>
+            <div class="action-card">
+                <div class="action-card-content">
+                    <h3>Meet the Team</h3>
+                    <p>Get to know your colleagues and key team members.</p>
+                    <a href="team.html" class="btn btn-primary btn-with-margin">View Team</a>
                 </div>
             </div>
         </div>
@@ -121,39 +214,85 @@
     <!-- Resources Section -->
     <section id="resources" class="programs">
         <div class="container">
-            <div class="section-header">
-                <h2>Essential Resources</h2>
-                <p>Everything you need to succeed at Fountain</p>
-            </div>
+            <div class="resources-layout">
+                <aside class="resources-sidebar">
+                    <h3>Categories</h3>
+                    <ul class="category-list" id="categoryList">
+                        <li><a href="#" class="category-link active" data-category="all">All Resources</a></li>
+                        <li><a href="#" class="category-link" data-category="HR & Policies">HR & Policies</a></li>
+                        <li><a href="#" class="category-link" data-category="Tools & Systems">Tools & Systems</a></li>
+                        <li><a href="#" class="category-link" data-category="Training">Training</a></li>
+                    </ul>
+                </aside>
+                <div class="resources-main">
+                    <div class="section-header">
+                        <h2>Essential Resources</h2>
+                        <p>Everything you need to succeed at Fountain</p>
+                    </div>
 
-            <div class="programs-grid">
-                <div class="program-card">
+                    <div class="programs-grid" id="resourcesGrid">
+                <div class="program-card" data-category="HR & Policies">
                     <div class="program-badge">HR & Policies</div>
                     <h3>Employee Handbook</h3>
                     <p>All company policies, benefits, time off, and employee guidelines in one place.</p>
                     <ul class="program-features">
-                        <li>✓ Employee handbook</li>
+                        <li>✓ <a href="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.0" target="_blank" rel="noopener noreferrer" data-resource-id="1" class="resource-link">
+                            Fountain Contractor Policies 
+                            <span class="external-link-icon" aria-label="Opens in new tab">↗</span>
+                            <span class="resource-type-badge">Google Doc</span>
+                        </a>
+                        <div class="resource-actions">
+                            <button class="action-btn print-btn" data-url="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.0" title="Print">🖨️</button>
+                            <button class="action-btn share-btn" data-url="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.0" data-title="Fountain Contractor Policies" title="Share">📤</button>
+                        </div>
+                        <span class="last-updated">Updated: Jan 10, 2025</span></li>
+                        <li>✓ <a href="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.5m8jshjoklog#heading=h.dkj3k3ikp9uc" target="_blank" rel="noopener noreferrer" data-resource-id="2" class="resource-link">
+                            Fountain Professional Standards 
+                            <span class="external-link-icon" aria-label="Opens in new tab">↗</span>
+                            <span class="resource-type-badge">Google Doc</span>
+                        </a>
+                        <div class="resource-actions">
+                            <button class="action-btn print-btn" data-url="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.5m8jshjoklog#heading=h.dkj3k3ikp9uc" title="Print">🖨️</button>
+                            <button class="action-btn share-btn" data-url="https://docs.google.com/document/d/1NAErz9kcHNtph0_BSICC4OuFH2in6relkFRkWGz9vjk/edit?tab=t.5m8jshjoklog#heading=h.dkj3k3ikp9uc" data-title="Fountain Professional Standards" title="Share">📤</button>
+                        </div>
+                        <span class="last-updated">Updated: Jan 10, 2025</span></li>
                         <li>✓ Benefits overview</li>
                         <li>✓ Time off policies</li>
-                        <li>✓ Code of conduct</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">View Resources</a>
+                    <div class="resource-rating" data-resource-id="1">
+                        <span class="rating-label">Helpful?</span>
+                        <button class="rating-btn" data-rating="helpful">👍</button>
+                        <button class="rating-btn" data-rating="not-helpful">👎</button>
+                        <span class="rating-count"></span>
+                    </div>
                 </div>
 
-                <div class="program-card">
+                <div class="program-card" data-category="Tools & Systems">
                     <div class="program-badge">Tools & Systems</div>
                     <h3>Technology & Tools</h3>
                     <p>Get access to all the tools, systems, and platforms you'll need for your role.</p>
                     <ul class="program-features">
+                        <li>✓ <a href="https://docs.google.com/document/d/1dXIr-i2el4GPmvXuDTjSvD7boh1j_XyHY8sJ03xtDIg/edit?tab=t.7o24scjh5yuj#heading=h.ymrggzhy6n8k" target="_blank" rel="noopener noreferrer" data-resource-id="3" class="resource-link">
+                            Systems Doc 
+                            <span class="external-link-icon" aria-label="Opens in new tab">↗</span>
+                            <span class="resource-type-badge">Google Doc</span>
+                        </a>
+                        <div class="resource-actions">
+                            <button class="action-btn print-btn" data-url="https://docs.google.com/document/d/1dXIr-i2el4GPmvXuDTjSvD7boh1j_XyHY8sJ03xtDIg/edit?tab=t.7o24scjh5yuj#heading=h.ymrggzhy6n8k" title="Print">🖨️</button>
+                            <button class="action-btn share-btn" data-url="https://docs.google.com/document/d/1dXIr-i2el4GPmvXuDTjSvD7boh1j_XyHY8sJ03xtDIg/edit?tab=t.7o24scjh5yuj#heading=h.ymrggzhy6n8k" data-title="Systems Doc" title="Share">📤</button>
+                        </div>
+                        <span class="last-updated">Updated: Jan 12, 2025</span></li>
                         <li>✓ Software access requests</li>
-                        <li>✓ System documentation</li>
-                        <li>✓ Training materials</li>
-                        <li>✓ IT support</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">View Resources</a>
+                    <div class="resource-rating" data-resource-id="3">
+                        <span class="rating-label">Helpful?</span>
+                        <button class="rating-btn" data-rating="helpful">👍</button>
+                        <button class="rating-btn" data-rating="not-helpful">👎</button>
+                        <span class="rating-count"></span>
+                    </div>
                 </div>
 
-                <div class="program-card">
+                <div class="program-card" data-category="Training">
                     <div class="program-badge">Training</div>
                     <h3>Learning & Development</h3>
                     <p>Access training courses, documentation, and learning resources to help you grow.</p>
@@ -163,234 +302,150 @@
                         <li>✓ Video tutorials</li>
                         <li>✓ Certification programs</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">View Resources</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Fountain?</h2>
-                <p>What makes Fountain a great place to work</p>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">01</div>
-                    <h3>Mission-Driven Work</h3>
-                    <p>Help thousands of people improve their health and quality of life through innovative telemedicine solutions.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">02</div>
-                    <h3>Great Benefits</h3>
-                    <p>Comprehensive health insurance, competitive salaries, 401(k) matching, and generous time off policies.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">03</div>
-                    <h3>Growth Opportunities</h3>
-                    <p>We invest in our team's development with training programs, mentorship, and clear career paths.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">04</div>
-                    <h3>Collaborative Culture</h3>
-                    <p>Work with smart, passionate people in a supportive environment where your ideas are valued.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">05</div>
-                    <h3>Work-Life Balance</h3>
-                    <p>Flexible work arrangements and policies that support your well-being and personal life.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">06</div>
-                    <h3>Innovation Focus</h3>
-                    <p>Be part of a fast-growing company that's revolutionizing healthcare delivery and technology.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Meet Your Team</h2>
-                <p>Connect with key people who will help you succeed</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <h3>Your Manager</h3>
-                    <p class="testimonial-text">Your direct manager will be your primary point of contact for role-specific questions, goals, and feedback.</p>
-                    <p class="testimonial-author">Schedule a 1:1 meeting</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <h3>HR Team</h3>
-                    <p class="testimonial-text">Our HR team is here to help with benefits, policies, payroll, and any questions about your employment.</p>
-                    <p class="testimonial-author">Contact: hr@fountain.net</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <h3>Your Onboarding Buddy</h3>
-                    <p class="testimonial-text">You'll be paired with an experienced team member who can answer questions and help you navigate your first weeks.</p>
-                    <p class="testimonial-author">You'll be introduced on Day 1</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Important Dates Section -->
-    <section class="onboarding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Important Dates & Milestones</h2>
-                <p>Key dates during your first 30 days</p>
-            </div>
-
-            <div class="onboarding-steps">
-                <div class="step">
-                    <div class="step-number">Week 1</div>
-                    <div class="step-content">
-                        <h3>Orientation Week</h3>
-                        <ul class="step-list">
-                            <li>Day 1: Welcome & introductions</li>
-                            <li>Day 2: Company overview session</li>
-                            <li>Day 3: Role-specific training begins</li>
-                            <li>Day 5: First week check-in</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">Week 2-3</div>
-                    <div class="step-content">
-                        <h3>Training & Integration</h3>
-                        <ul class="step-list">
-                            <li>Continue role-specific training</li>
-                            <li>Attend team meetings</li>
-                            <li>Begin taking on responsibilities</li>
-                            <li>Mid-month feedback session</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">Week 4</div>
-                    <div class="step-content">
-                        <h3>First Month Review</h3>
-                        <ul class="step-list">
-                            <li>30-day check-in meeting</li>
-                            <li>Review goals and progress</li>
-                            <li>Gather feedback</li>
-                            <li>Plan next steps</li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Integrations Section -->
+    <section id="integrations" class="integrations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Access</h2>
+                <p>One-click access to commonly used tools</p>
+            </div>
+            <div class="integrations-grid" id="integrationsGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+            <div class="faq-container" id="faqContainer">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Form Section -->
+    <section id="feedback" class="feedback-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Share Your Feedback</h2>
+                <p>Help us improve the onboarding experience</p>
+            </div>
+            <form class="feedback-form" id="feedbackForm">
+                <div class="form-group">
+                    <label for="feedbackName">Your Name (Optional)</label>
+                    <input type="text" id="feedbackName" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="feedbackEmail">Email (Optional)</label>
+                    <input type="email" id="feedbackEmail" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="feedbackType">Feedback Type</label>
+                    <select id="feedbackType" name="type" required>
+                        <option value="">Select a type</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="issue">Issue</option>
+                        <option value="praise">Praise</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedbackMessage">Your Feedback</label>
+                    <textarea id="feedbackMessage" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Glossary Section -->
+    <section id="glossary" class="glossary-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Glossary</h2>
+                <p>Common terms and acronyms</p>
+            </div>
+            <div class="glossary-container" id="glossaryContainer">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Support Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
                 <h2>Need Help?</h2>
                 <p>We're here to support you throughout your onboarding</p>
             </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get Support</h3>
-                    <p>Don't hesitate to reach out if you have questions or need assistance during your onboarding.</p>
-                    <div class="contact-details">
-                        <p><strong>HR Team:</strong> hr@fountain.net</p>
-                        <p><strong>IT Support:</strong> it-support@fountain.net</p>
-                        <p><strong>General Questions:</strong> onboarding@fountain.net</p>
-                        <p><strong>Your Manager:</strong> Check your welcome email</p>
-                    </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">👥</div>
+                    <h3>HR Team</h3>
+                    <p>Questions about benefits, policies, or employment</p>
+                    <a href="mailto:hr@fountain.net" class="contact-link">hr@fountain.net</a>
                 </div>
-
-                <form class="contact-form">
-                    <h3>Send a Question</h3>
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="department">Department</label>
-                        <select id="department" name="department" class="form-select">
-                            <option value="">Select a department</option>
-                            <option value="hr">HR</option>
-                            <option value="it">IT</option>
-                            <option value="operations">Operations</option>
-                            <option value="clinical">Clinical</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Question or Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h3>IT Support</h3>
+                    <p>Technical issues or system access requests</p>
+                    <a href="mailto:it-support@fountain.net" class="contact-link">it-support@fountain.net</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>General Questions</h3>
+                    <p>Onboarding questions or general inquiries</p>
+                    <a href="mailto:onboarding@fountain.net" class="contact-link">onboarding@fountain.net</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>Slack Support</h3>
+                    <p>Contact Daniel Raphael on Slack</p>
+                    <a href="https://app.slack.com/client/T013TB68ABD/C013RPA089K" target="_blank" rel="noopener noreferrer" class="contact-link">Open Slack</a>
+                </div>
             </div>
         </div>
     </section>
 
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <span>↑</span>
+    </button>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Fountain Onboarding</h4>
-                    <p>Your resource for a smooth onboarding experience.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#getting-started">Getting Started</a></li>
-                        <li><a href="#resources">Resources</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#contact">Help & Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Employee Handbook</a></li>
-                        <li><a href="#">Benefits Portal</a></li>
-                        <li><a href="#">IT Help Desk</a></li>
-                        <li><a href="#">Training Library</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="https://fountain.net">Fountain.net</a></li>
-                        <li><a href="#">About Fountain</a></li>
-                        <li><a href="#">Company Culture</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Fountain Vitality Inc. All Rights Reserved. | Internal Employee Portal</p>
+                <p>&copy; 2025 Fountain Vitality, Inc. All rights reserved. Internal Employee Portal.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed'));
+            });
+        }
+    </script>
 </body>
 </html>

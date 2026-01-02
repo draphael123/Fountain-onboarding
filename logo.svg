@@ -1,0 +1,12 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark blue shapes (left side) -->
+  <path d="M15 10 Q20 15 20 20 Q20 25 15 30" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M15 20 Q20 25 20 30 Q20 35 15 40" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M15 30 Q20 35 20 40 Q20 45 15 50" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Light blue/teal shapes (right side) -->
+  <path d="M25 10 Q20 15 20 20 Q20 25 25 30" stroke="#00a8cc" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M25 20 Q20 25 20 30 Q20 35 25 40" stroke="#00a8cc" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M25 30 Q20 35 20 40 Q20 45 25 50" stroke="#00a8cc" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>
+
