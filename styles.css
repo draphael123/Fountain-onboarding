@@ -1646,6 +1646,83 @@ body.high-contrast * {
     line-height: 1.6;
 }
 
+/* About Us Section */
+.about-section {
+    padding: 3rem 0;
+    background: var(--bg-white);
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-main {
+    background: var(--bg-white);
+}
+
+.about-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-text p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.about-features {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.about-features li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.about-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.about-features li strong {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.about-cta {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.about-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about-cta .external-link-icon {
+    font-size: 0.875rem;
+    margin-left: 0.25rem;
+}
+
 /* Integrations Section */
 .integrations-section {
     padding: 3rem 0;

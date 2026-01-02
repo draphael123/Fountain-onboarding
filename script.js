@@ -1209,6 +1209,7 @@ function initBreadcrumbs() {
             { id: 'first-day-checklist', name: 'First Day Checklist' },
             { id: 'resources', name: 'Resources' },
             { id: 'team', name: 'Team' },
+            { id: 'about', name: 'About Us' },
             { id: 'faq', name: 'FAQ' },
             { id: 'contact', name: 'Contact' }
         ];
