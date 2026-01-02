@@ -187,6 +187,7 @@ function initializeFeatures() {
     initLanguageSupport();
     initLazyLoading();
     initFirstDayChecklist();
+    initIntegrations();
     initRecentlyViewed();
     initResourceCategories();
     initPrintButtons();
