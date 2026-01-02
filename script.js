@@ -146,9 +146,16 @@ let contentData = {};
 
 // Load content data
 fetch('content.json')
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
         contentData = data;
+        console.log('Content data loaded:', contentData);
+        console.log('Role day one tasks:', contentData.roleDayOneTasks);
         initializeFeatures();
     })
     .catch(err => {
