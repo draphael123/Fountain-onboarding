@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RNS Day One Checklist - Complete your first day tasks as a Registered Nurse at Fountain.">
-    <meta name="keywords" content="Fountain, RN, Registered Nurse, onboarding, day one">
-    <meta property="og:title" content="RNS Day One Checklist - Fountain Onboarding">
-    <meta property="og:description" content="Complete your first day tasks as a Registered Nurse at Fountain.">
+    <meta name="description" content="Pharmacy Liaison Day One Checklist - Complete your first day tasks as a Pharmacy Liaison at Fountain.">
+    <meta name="keywords" content="Fountain, MA, Medical Assistant, Pharmacy Liaison, onboarding, day one">
+    <meta property="og:title" content="Pharmacy Liaison Day One Checklist - Fountain Onboarding">
+    <meta property="og:description" content="Complete your first day tasks as a Pharmacy Liaison at Fountain.">
     <meta property="og:type" content="website">
-    <title>RNS Day One Checklist - Fountain Onboarding</title>
+    <title>Pharmacy Liaison Day One Checklist - Fountain Onboarding</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,18 +52,19 @@
             <ol>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#first-day-checklist">First Day Checklist</a></li>
-                <li>RNS Day One Checklist</li>
+                <li><a href="day-one-mas.html">MA Role Selection</a></li>
+                <li>Pharmacy Liaison Day One Checklist</li>
             </ol>
         </div>
     </nav>
 
     <main id="main-content">
-    <!-- RNS Day One Checklist Section -->
+    <!-- Pharmacy Liaison Day One Checklist Section -->
     <section id="first-day-checklist" class="checklist-section">
         <div class="container">
             <div class="section-header">
-                <h2>RNS Day One Checklist</h2>
-                <p>Complete these tasks to get started as a Registered Nurse</p>
+                <h2>Pharmacy Liaison Day One Checklist</h2>
+                <p>Complete these tasks to get started as a Pharmacy Liaison</p>
             </div>
             <div class="checklist-container" id="checklistContainer">
                 <!-- Populated by JavaScript -->
@@ -71,11 +72,24 @@
         </div>
     </section>
 
-    <!-- RN Training Section -->
-    <section id="rn-training" class="training-section">
+    <!-- Pharmacy Liaison Training Section -->
+    <section id="pharmacy-liaison-training" class="training-section">
         <div class="container">
             <div class="section-header">
-                <h2 id="trainingTitle">Telemedicine RN Training Schedule & Guide</h2>
+                <h2 id="trainingTitle">Training Schedule & Guide – Pharmacy Requests & Coordination</h2>
+                <p id="trainingSubtitle"></p>
+            </div>
+            <div class="training-container" id="trainingContainer">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pharmacy Liaison Training Section -->
+    <section id="pharmacy-liaison-training" class="training-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="trainingTitle">Training Schedule & Guide – Pharmacy Requests & Coordination</h2>
                 <p id="trainingSubtitle"></p>
             </div>
             <div class="training-container" id="trainingContainer">
@@ -102,21 +116,21 @@
 
     <script src="script.js"></script>
     <script>
-        // Load and display RNS tasks and training
+        // Load and display Pharmacy Liaison tasks and training
         fetch('content.json')
             .then(response => response.json())
             .then(data => {
                 // Load Day One Checklist
-                const roleTasks = data.roleDayOneTasks?.RNS || [];
+                const roleTasks = data.roleDayOneTasks?.["Pharmacy Liaison"] || [];
                 const checklistContainer = document.getElementById('checklistContainer');
-                const savedProgress = JSON.parse(localStorage.getItem('checklistProgress-RNS') || '{}');
+                const savedProgress = JSON.parse(localStorage.getItem('checklistProgress-Pharmacy Liaison') || '{}');
                 
                 if (roleTasks.length === 0) {
-                    checklistContainer.innerHTML = '<div class="empty-state"><p>No tasks available for RNS at this time. Check back soon!</p></div>';
+                    checklistContainer.innerHTML = '<div class="empty-state"><p>No tasks available for Pharmacy Liaison at this time. Check back soon!</p></div>';
                 } else {
                     checklistContainer.innerHTML = roleTasks.map((item, index) => {
                         const isChecked = savedProgress[index] || false;
-                        const taskId = `role-checklist-RNS-${index}`;
+                        const taskId = `role-checklist-Pharmacy Liaison-${index}`;
                         
                         let taskContent = `<h4>${item.task}</h4>`;
                         
@@ -147,9 +161,9 @@
                     checklistContainer.querySelectorAll('.checklist-checkbox').forEach((checkbox, index) => {
                         checkbox.addEventListener('change', () => {
                             const item = checkbox.closest('.checklist-item');
-                            const progress = JSON.parse(localStorage.getItem('checklistProgress-RNS') || '{}');
+                            const progress = JSON.parse(localStorage.getItem('checklistProgress-Pharmacy Liaison') || '{}');
                             progress[index] = checkbox.checked;
-                            localStorage.setItem('checklistProgress-RNS', JSON.stringify(progress));
+                            localStorage.setItem('checklistProgress-Pharmacy Liaison', JSON.stringify(progress));
                             
                             if (checkbox.checked) {
                                 item.classList.add('completed');
@@ -161,14 +175,14 @@
                 }
 
                 // Load Training Content
-                const trainingData = data.roleTraining?.RNS;
+                const trainingData = data.roleTraining?.["Pharmacy Liaison"];
                 const trainingContainer = document.getElementById('trainingContainer');
                 const trainingTitle = document.getElementById('trainingTitle');
                 const trainingSubtitle = document.getElementById('trainingSubtitle');
                 
                 if (trainingData) {
                     trainingTitle.textContent = trainingData.title;
-                    trainingSubtitle.textContent = `Role: ${trainingData.role} | Duration: ${trainingData.duration} | Format: ${trainingData.format}`;
+                    trainingSubtitle.textContent = `Role: ${trainingData.role} | Primary Focus: ${trainingData.primaryFocus} | Duration: ${trainingData.duration} | Format: ${trainingData.format}`;
                     
                     let trainingHTML = `
                         <div class="training-overview">
@@ -178,7 +192,7 @@
                         
                         <div class="training-objectives">
                             <h3>Training Objectives</h3>
-                            <p>By the end of training, the RN will be able to:</p>
+                            <p>By the end of training, the Pharmacy Liaison will be able to:</p>
                             <ul>
                                 ${trainingData.objectives.map(obj => `<li>${obj}</li>`).join('')}
                             </ul>
@@ -194,15 +208,15 @@
                                     </ul>
                                 </div>
                                 <div class="pre-req-category">
-                                    <h4>Technology Setup</h4>
+                                    <h4>System Access</h4>
                                     <ul>
-                                        ${trainingData.preTraining.technology.map(item => `<li>${item}</li>`).join('')}
+                                        ${trainingData.preTraining.systemAccess.map(item => `<li>${item}</li>`).join('')}
                                     </ul>
                                 </div>
                                 <div class="pre-req-category">
-                                    <h4>Accounts & Tools</h4>
+                                    <h4>Technology Readiness</h4>
                                     <ul>
-                                        ${trainingData.preTraining.accounts.map(item => `<li>${item}</li>`).join('')}
+                                        ${trainingData.preTraining.technologyReadiness.map(item => `<li>${item}</li>`).join('')}
                                     </ul>
                                 </div>
                             </div>
@@ -227,16 +241,36 @@
                                     trainingHTML += `<ul class="training-topics">${dayData.topics.map(topic => `<li>${topic}</li>`).join('')}</ul>`;
                                 }
                                 
+                                if (dayData.pharmacyRequestTypes) {
+                                    trainingHTML += `<p><strong>Types of pharmacy requests:</strong></p><ul>${dayData.pharmacyRequestTypes.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.prescriptionComponents) {
+                                    trainingHTML += `<p><strong>Understanding prescription components:</strong></p><ul>${dayData.prescriptionComponents.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
                                 if (dayData.handsOn) {
                                     trainingHTML += `<p><strong>Hands-On:</strong></p><ul>${dayData.handsOn.map(item => `<li>${item}</li>`).join('')}</ul>`;
                                 }
                                 
-                                if (dayData.review) {
-                                    trainingHTML += `<p><strong>Review:</strong></p><ul>${dayData.review.map(item => `<li>${item}</li>`).join('')}</ul>`;
-                                }
-                                
                                 if (dayData.practice) {
                                     trainingHTML += `<p><strong>Practice:</strong></p><ul>${dayData.practice.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.escalationTargets) {
+                                    trainingHTML += `<p><strong>When to escalate to:</strong></p><ul>${dayData.escalationTargets.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.redFlags) {
+                                    trainingHTML += `<p><strong>Red flags:</strong></p><ul>${dayData.redFlags.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.communicationStandards) {
+                                    trainingHTML += `<p><strong>Communication Standards:</strong></p><ul>${dayData.communicationStandards.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.simulation) {
+                                    trainingHTML += `<p><strong>Simulation:</strong></p><ul>${dayData.simulation.map(item => `<li>${item}</li>`).join('')}</ul>`;
                                 }
                                 
                                 if (dayData.activities) {
@@ -251,8 +285,12 @@
                                     trainingHTML += `<p>${dayData.description}</p>`;
                                 }
                                 
-                                if (dayData.simulation) {
-                                    trainingHTML += `<p><strong>Simulation:</strong></p><ul>${dayData.simulation.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                if (dayData.metrics) {
+                                    trainingHTML += `<p><strong>Review metrics:</strong></p><ul>${dayData.metrics.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.finalSteps) {
+                                    trainingHTML += `<p><strong>Final Steps:</strong></p><ul>${dayData.finalSteps.map(item => `<li>${item}</li>`).join('')}</ul>`;
                                 }
                                 
                                 trainingHTML += `</div>`;
@@ -274,7 +312,7 @@
                     trainingHTML += `
                         <div class="training-competency">
                             <h3>Competency Checklist</h3>
-                            <p>RN must demonstrate proficiency in:</p>
+                            <p>MA must demonstrate proficiency in:</p>
                             <ul>
                                 ${trainingData.competencyChecklist.map(item => `<li>${item}</li>`).join('')}
                             </ul>
@@ -288,12 +326,24 @@
                     // Add ongoing support
                     trainingHTML += `
                         <div class="training-ongoing">
-                            <h3>Ongoing Support & Continuing Education</h3>
+                            <h3>Ongoing Monitoring & Support</h3>
                             <ul>
                                 ${trainingData.ongoingSupport.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                     `;
+
+                    // Add reference materials
+                    if (trainingData.referenceMaterials) {
+                        trainingHTML += `
+                            <div class="training-reference">
+                                <h3>Reference Materials (Appendix)</h3>
+                                <ul>
+                                    ${trainingData.referenceMaterials.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    }
 
                     trainingContainer.innerHTML = trainingHTML;
                 } else {
@@ -301,13 +351,11 @@
                 }
             })
             .catch(err => {
-                console.error('Error loading RNS content:', err);
+                console.error('Error loading Pharmacy Liaison content:', err);
                 document.getElementById('checklistContainer').innerHTML = '<div class="empty-state"><p>Error loading tasks. Please try again later.</p></div>';
                 document.getElementById('trainingContainer').innerHTML = '<div class="empty-state"><p>Error loading training information. Please try again later.</p></div>';
             });
     </script>
 </body>
 </html>
-
-
 

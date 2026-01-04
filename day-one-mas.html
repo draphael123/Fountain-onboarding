@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MAs Day One Checklist - Complete your first day tasks as a Medical Assistant at Fountain.">
+    <meta name="description" content="MA Role Selection - Choose your Medical Assistant role at Fountain.">
     <meta name="keywords" content="Fountain, MA, Medical Assistant, onboarding, day one">
-    <meta property="og:title" content="MAs Day One Checklist - Fountain Onboarding">
-    <meta property="og:description" content="Complete your first day tasks as a Medical Assistant at Fountain.">
+    <meta property="og:title" content="MA Role Selection - Fountain Onboarding">
+    <meta property="og:description" content="Select your MA role to view your day one tasks.">
     <meta property="og:type" content="website">
-    <title>MAs Day One Checklist - Fountain Onboarding</title>
+    <title>MA Role Selection - Fountain Onboarding</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,21 +52,22 @@
             <ol>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#first-day-checklist">First Day Checklist</a></li>
-                <li>MAs Day One Checklist</li>
+                <li>MA Role Selection</li>
             </ol>
         </div>
     </nav>
 
     <main id="main-content">
-    <!-- MAs Day One Checklist Section -->
+    <!-- MAs Selection Section -->
     <section id="first-day-checklist" class="checklist-section">
         <div class="container">
             <div class="section-header">
-                <h2>MAs Day One Checklist</h2>
-                <p>Complete these tasks to get started as a Medical Assistant</p>
+                <h2>Medical Assistant (MA) Role Selection</h2>
+                <p>Select your specific MA role to view your day one tasks</p>
             </div>
-            <div class="checklist-container" id="checklistContainer">
-                <!-- Populated by JavaScript -->
+            <div class="checklist-buttons">
+                <a href="day-one-back-office-ma.html" class="checklist-role-btn">Back Office MA</a>
+                <a href="day-one-pharmacy-liaison.html" class="checklist-role-btn">Pharmacy Liaison</a>
             </div>
         </div>
     </section>
@@ -82,77 +83,14 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2025 Fountain Vitality, Inc. All rights reserved. Internal Employee Portal.</p>
+                <p>Copyright © 2025  All Rights Reserved by Fountain Vitality Inc.<br>2064 Park St, Jacksonville, FL 32204</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Load and display MAs tasks
-        fetch('content.json')
-            .then(response => response.json())
-            .then(data => {
-                const roleTasks = data.roleDayOneTasks?.MAs || [];
-                const checklistContainer = document.getElementById('checklistContainer');
-                const savedProgress = JSON.parse(localStorage.getItem('checklistProgress-MAs') || '{}');
-                
-                if (roleTasks.length === 0) {
-                    checklistContainer.innerHTML = '<div class="empty-state"><p>No tasks available for MAs at this time. Check back soon!</p></div>';
-                    return;
-                }
-                
-                checklistContainer.innerHTML = roleTasks.map((item, index) => {
-                    const isChecked = savedProgress[index] || false;
-                    const taskId = `role-checklist-MAs-${index}`;
-                    
-                    let taskContent = `<h4>${item.task}</h4>`;
-                    
-                    if (item.url) {
-                        taskContent = `<h4><a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.task} <span class="external-link-icon" aria-label="Opens in new tab">↗</span></a></h4>`;
-                    } else if (item.urls && item.urls.length > 0) {
-                        const links = item.urls.map((url, i) => 
-                            `<a href="${url}" target="_blank" rel="noopener noreferrer" class="task-link">Link ${i + 1} <span class="external-link-icon" aria-label="Opens in new tab">↗</span></a>`
-                        ).join(' ');
-                        taskContent = `<h4>${item.task}</h4><div class="task-links">${links}</div>`;
-                    }
-                    
-                    return `
-                        <div class="checklist-item ${isChecked ? 'completed' : ''}" data-index="${index}">
-                            <input type="checkbox" class="checklist-checkbox" ${isChecked ? 'checked' : ''} id="${taskId}">
-                            <div class="checklist-content">
-                                ${taskContent}
-                                <div class="checklist-meta">
-                                    <span class="checklist-category">${item.category}</span>
-                                    ${item.required ? '<span class="checklist-required">Required</span>' : '<span>Optional</span>'}
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-                
-                // Add event listeners for checkboxes
-                checklistContainer.querySelectorAll('.checklist-checkbox').forEach((checkbox, index) => {
-                    checkbox.addEventListener('change', () => {
-                        const item = checkbox.closest('.checklist-item');
-                        const progress = JSON.parse(localStorage.getItem('checklistProgress-MAs') || '{}');
-                        progress[index] = checkbox.checked;
-                        localStorage.setItem('checklistProgress-MAs', JSON.stringify(progress));
-                        
-                        if (checkbox.checked) {
-                            item.classList.add('completed');
-                        } else {
-                            item.classList.remove('completed');
-                        }
-                    });
-                });
-            })
-            .catch(err => {
-                console.error('Error loading MAs tasks:', err);
-                document.getElementById('checklistContainer').innerHTML = '<div class="empty-state"><p>Error loading tasks. Please try again later.</p></div>';
-            });
-    </script>
 </body>
 </html>
+
 
 

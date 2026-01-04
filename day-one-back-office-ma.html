@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RNS Day One Checklist - Complete your first day tasks as a Registered Nurse at Fountain.">
-    <meta name="keywords" content="Fountain, RN, Registered Nurse, onboarding, day one">
-    <meta property="og:title" content="RNS Day One Checklist - Fountain Onboarding">
-    <meta property="og:description" content="Complete your first day tasks as a Registered Nurse at Fountain.">
+    <meta name="description" content="Back Office MA Day One Checklist - Complete your first day tasks as a Back Office Medical Assistant at Fountain.">
+    <meta name="keywords" content="Fountain, MA, Medical Assistant, Back Office, onboarding, day one">
+    <meta property="og:title" content="Back Office MA Day One Checklist - Fountain Onboarding">
+    <meta property="og:description" content="Complete your first day tasks as a Back Office Medical Assistant at Fountain.">
     <meta property="og:type" content="website">
-    <title>RNS Day One Checklist - Fountain Onboarding</title>
+    <title>Back Office MA Day One Checklist - Fountain Onboarding</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,18 +52,19 @@
             <ol>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#first-day-checklist">First Day Checklist</a></li>
-                <li>RNS Day One Checklist</li>
+                <li><a href="day-one-mas.html">MA Role Selection</a></li>
+                <li>Back Office MA Day One Checklist</li>
             </ol>
         </div>
     </nav>
 
     <main id="main-content">
-    <!-- RNS Day One Checklist Section -->
+    <!-- Back Office MA Day One Checklist Section -->
     <section id="first-day-checklist" class="checklist-section">
         <div class="container">
             <div class="section-header">
-                <h2>RNS Day One Checklist</h2>
-                <p>Complete these tasks to get started as a Registered Nurse</p>
+                <h2>Back Office MA Day One Checklist</h2>
+                <p>Complete these tasks to get started as a Back Office Medical Assistant</p>
             </div>
             <div class="checklist-container" id="checklistContainer">
                 <!-- Populated by JavaScript -->
@@ -71,11 +72,11 @@
         </div>
     </section>
 
-    <!-- RN Training Section -->
-    <section id="rn-training" class="training-section">
+    <!-- Back Office MA Training Section -->
+    <section id="back-office-ma-training" class="training-section">
         <div class="container">
             <div class="section-header">
-                <h2 id="trainingTitle">Telemedicine RN Training Schedule & Guide</h2>
+                <h2 id="trainingTitle">Training Schedule & Guide – PMP Checks & Pre-Charting</h2>
                 <p id="trainingSubtitle"></p>
             </div>
             <div class="training-container" id="trainingContainer">
@@ -102,21 +103,21 @@
 
     <script src="script.js"></script>
     <script>
-        // Load and display RNS tasks and training
+        // Load and display Back Office MA tasks and training
         fetch('content.json')
             .then(response => response.json())
             .then(data => {
                 // Load Day One Checklist
-                const roleTasks = data.roleDayOneTasks?.RNS || [];
+                const roleTasks = data.roleDayOneTasks?.["Back Office MA"] || [];
                 const checklistContainer = document.getElementById('checklistContainer');
-                const savedProgress = JSON.parse(localStorage.getItem('checklistProgress-RNS') || '{}');
+                const savedProgress = JSON.parse(localStorage.getItem('checklistProgress-Back Office MA') || '{}');
                 
                 if (roleTasks.length === 0) {
-                    checklistContainer.innerHTML = '<div class="empty-state"><p>No tasks available for RNS at this time. Check back soon!</p></div>';
+                    checklistContainer.innerHTML = '<div class="empty-state"><p>No tasks available for Back Office MA at this time. Check back soon!</p></div>';
                 } else {
                     checklistContainer.innerHTML = roleTasks.map((item, index) => {
                         const isChecked = savedProgress[index] || false;
-                        const taskId = `role-checklist-RNS-${index}`;
+                        const taskId = `role-checklist-Back Office MA-${index}`;
                         
                         let taskContent = `<h4>${item.task}</h4>`;
                         
@@ -147,9 +148,9 @@
                     checklistContainer.querySelectorAll('.checklist-checkbox').forEach((checkbox, index) => {
                         checkbox.addEventListener('change', () => {
                             const item = checkbox.closest('.checklist-item');
-                            const progress = JSON.parse(localStorage.getItem('checklistProgress-RNS') || '{}');
+                            const progress = JSON.parse(localStorage.getItem('checklistProgress-Back Office MA') || '{}');
                             progress[index] = checkbox.checked;
-                            localStorage.setItem('checklistProgress-RNS', JSON.stringify(progress));
+                            localStorage.setItem('checklistProgress-Back Office MA', JSON.stringify(progress));
                             
                             if (checkbox.checked) {
                                 item.classList.add('completed');
@@ -161,14 +162,14 @@
                 }
 
                 // Load Training Content
-                const trainingData = data.roleTraining?.RNS;
+                const trainingData = data.roleTraining?.["Back Office MA"];
                 const trainingContainer = document.getElementById('trainingContainer');
                 const trainingTitle = document.getElementById('trainingTitle');
                 const trainingSubtitle = document.getElementById('trainingSubtitle');
                 
                 if (trainingData) {
                     trainingTitle.textContent = trainingData.title;
-                    trainingSubtitle.textContent = `Role: ${trainingData.role} | Duration: ${trainingData.duration} | Format: ${trainingData.format}`;
+                    trainingSubtitle.textContent = `Role: ${trainingData.role} | Primary Focus: ${trainingData.primaryFocus} | Duration: ${trainingData.duration} | Format: ${trainingData.format}`;
                     
                     let trainingHTML = `
                         <div class="training-overview">
@@ -178,7 +179,7 @@
                         
                         <div class="training-objectives">
                             <h3>Training Objectives</h3>
-                            <p>By the end of training, the RN will be able to:</p>
+                            <p>By the end of training, the MA will be able to:</p>
                             <ul>
                                 ${trainingData.objectives.map(obj => `<li>${obj}</li>`).join('')}
                             </ul>
@@ -194,15 +195,15 @@
                                     </ul>
                                 </div>
                                 <div class="pre-req-category">
-                                    <h4>Technology Setup</h4>
+                                    <h4>System Access</h4>
                                     <ul>
-                                        ${trainingData.preTraining.technology.map(item => `<li>${item}</li>`).join('')}
+                                        ${trainingData.preTraining.systemAccess.map(item => `<li>${item}</li>`).join('')}
                                     </ul>
                                 </div>
                                 <div class="pre-req-category">
-                                    <h4>Accounts & Tools</h4>
+                                    <h4>Technology Readiness</h4>
                                     <ul>
-                                        ${trainingData.preTraining.accounts.map(item => `<li>${item}</li>`).join('')}
+                                        ${trainingData.preTraining.technologyReadiness.map(item => `<li>${item}</li>`).join('')}
                                     </ul>
                                 </div>
                             </div>
@@ -231,12 +232,20 @@
                                     trainingHTML += `<p><strong>Hands-On:</strong></p><ul>${dayData.handsOn.map(item => `<li>${item}</li>`).join('')}</ul>`;
                                 }
                                 
-                                if (dayData.review) {
-                                    trainingHTML += `<p><strong>Review:</strong></p><ul>${dayData.review.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                if (dayData.documentationStandards) {
+                                    trainingHTML += `<p><strong>Documentation Standards:</strong></p><ul>${dayData.documentationStandards.map(item => `<li>${item}</li>`).join('')}</ul>`;
                                 }
                                 
-                                if (dayData.practice) {
-                                    trainingHTML += `<p><strong>Practice:</strong></p><ul>${dayData.practice.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                if (dayData.pmpredfFlags) {
+                                    trainingHTML += `<p><strong>PMP Red Flags:</strong></p><ul>${dayData.pmpredfFlags.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.otherRedFlags) {
+                                    trainingHTML += `<p><strong>Other Red Flags:</strong></p><ul>${dayData.otherRedFlags.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                }
+                                
+                                if (dayData.escalationProtocol) {
+                                    trainingHTML += `<p><strong>Escalation Protocol:</strong></p><ul>${dayData.escalationProtocol.map(item => `<li>${item}</li>`).join('')}</ul>`;
                                 }
                                 
                                 if (dayData.activities) {
@@ -251,8 +260,8 @@
                                     trainingHTML += `<p>${dayData.description}</p>`;
                                 }
                                 
-                                if (dayData.simulation) {
-                                    trainingHTML += `<p><strong>Simulation:</strong></p><ul>${dayData.simulation.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                if (dayData.finalAssessment) {
+                                    trainingHTML += `<p><strong>Final Assessment:</strong></p><ul>${dayData.finalAssessment.map(item => `<li>${item}</li>`).join('')}</ul>`;
                                 }
                                 
                                 trainingHTML += `</div>`;
@@ -274,7 +283,7 @@
                     trainingHTML += `
                         <div class="training-competency">
                             <h3>Competency Checklist</h3>
-                            <p>RN must demonstrate proficiency in:</p>
+                            <p>MA must demonstrate proficiency in:</p>
                             <ul>
                                 ${trainingData.competencyChecklist.map(item => `<li>${item}</li>`).join('')}
                             </ul>
@@ -288,12 +297,24 @@
                     // Add ongoing support
                     trainingHTML += `
                         <div class="training-ongoing">
-                            <h3>Ongoing Support & Continuing Education</h3>
+                            <h3>Ongoing Monitoring & Support</h3>
                             <ul>
                                 ${trainingData.ongoingSupport.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                     `;
+
+                    // Add reference materials
+                    if (trainingData.referenceMaterials) {
+                        trainingHTML += `
+                            <div class="training-reference">
+                                <h3>Reference Materials (Appendix)</h3>
+                                <ul>
+                                    ${trainingData.referenceMaterials.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    }
 
                     trainingContainer.innerHTML = trainingHTML;
                 } else {
@@ -301,13 +322,11 @@
                 }
             })
             .catch(err => {
-                console.error('Error loading RNS content:', err);
+                console.error('Error loading Back Office MA content:', err);
                 document.getElementById('checklistContainer').innerHTML = '<div class="empty-state"><p>Error loading tasks. Please try again later.</p></div>';
                 document.getElementById('trainingContainer').innerHTML = '<div class="empty-state"><p>Error loading training information. Please try again later.</p></div>';
             });
     </script>
 </body>
 </html>
-
-
 

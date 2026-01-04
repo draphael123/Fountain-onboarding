@@ -306,6 +306,533 @@
       }
     ]
   },
+  "roleTraining": {
+    "RNS": {
+      "title": "Telemedicine RN Training Schedule & Guide",
+      "role": "Telemedicine Registered Nurse (RN)",
+      "duration": "2–4 weeks (adjustable based on experience)",
+      "format": "Asynchronous + Live Shadowing + Supervised Practice",
+      "goal": "Prepare RN to independently deliver safe, compliant, high-quality telemedicine care",
+      "objectives": [
+        "Navigate all telemedicine platforms confidently",
+        "Conduct virtual patient encounters independently",
+        "Document accurately and compliantly in the EHR",
+        "Follow escalation, triage, and emergency protocols",
+        "Communicate professionally with patients and internal teams",
+        "Adhere to state-based licensing and scope-of-practice rules"
+      ],
+      "preTraining": {
+        "administrative": [
+          "RN license(s) verified and active",
+          "Telemedicine agreements completed",
+          "HIPAA training completed",
+          "Access granted to all systems"
+        ],
+        "technology": [
+          "Secure device approved",
+          "Internet speed verified",
+          "Headset/webcam tested",
+          "VPN (if applicable) configured"
+        ],
+        "accounts": [
+          "EHR access",
+          "Video visit platform",
+          "Scheduling platform",
+          "Messaging system",
+          "Knowledge base access"
+        ]
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "title": "Orientation & Foundations",
+          "days": [
+            {
+              "day": 1,
+              "title": "Company & Role Orientation",
+              "topics": [
+                "Company mission and patient population overview",
+                "Telemedicine care model explained",
+                "RN role vs provider role clarification",
+                "Scope of practice review",
+                "Compliance and HIPAA refresher"
+              ],
+              "deliverables": [
+                "Acknowledge policies",
+                "Complete orientation checklist"
+              ]
+            },
+            {
+              "day": 2,
+              "title": "Systems Overview",
+              "topics": [
+                "EHR navigation",
+                "Patient charts",
+                "Documentation standards",
+                "Messaging",
+                "Scheduling system",
+                "Video visit platform",
+                "Internal communication tools"
+              ],
+              "handsOn": [
+                "Navigate mock patient charts",
+                "Practice documentation in test environment"
+              ]
+            },
+            {
+              "day": 3,
+              "title": "Clinical Protocols & Workflows",
+              "topics": [
+                "Standard patient workflows",
+                "Intake and pre-visit review",
+                "Common visit types",
+                "Lab ordering overview (if applicable)",
+                "Medication coordination basics"
+              ],
+              "review": [
+                "Knowledge base walkthrough",
+                "Standard operating procedures (SOPs)"
+              ]
+            },
+            {
+              "day": 4,
+              "title": "Communication & Patient Experience",
+              "topics": [
+                "Telemedicine bedside manner",
+                "Handling sensitive conversations virtually",
+                "Patient education best practices",
+                "Managing difficult or escalated patients",
+                "Documentation tone and clarity"
+              ],
+              "practice": [
+                "Scripted role-play scenarios"
+              ]
+            },
+            {
+              "day": 5,
+              "title": "Shadowing (Observation)",
+              "activities": [
+                "Observe live or recorded RN visits",
+                "Observe provider handoffs",
+                "Observe escalation workflows"
+              ]
+            }
+          ],
+          "checkpoint": "Trainer review, Q&A, Readiness assessment for Week 2"
+        },
+        {
+          "week": 2,
+          "title": "Supervised Practice",
+          "days": [
+            {
+              "day": 6,
+              "title": "Guided Visits",
+              "description": "Days 6–7: Conduct visits with trainer observing, Real-time feedback. Focus on: Patient flow, Documentation accuracy, Communication clarity"
+            },
+            {
+              "day": 8,
+              "title": "Increased Autonomy",
+              "description": "Days 8–9: Handle visits independently with trainer on standby, Manage follow-ups, Coordinate with providers or pharmacy as needed"
+            },
+            {
+              "day": 10,
+              "title": "Escalations & Edge Cases",
+              "topics": [
+                "Red-flag symptoms",
+                "Emergency escalation protocols",
+                "Technical failures during visits",
+                "State-specific compliance scenarios"
+              ],
+              "simulation": [
+                "Emergency and escalation drills"
+              ]
+            }
+          ]
+        },
+        {
+          "week": 3,
+          "title": "Independent Practice with Monitoring (Optional)",
+          "description": "RN runs full schedule independently. Random chart audits. Continued feedback on: Efficiency, Accuracy, Patient satisfaction. Gradual reduction of oversight"
+        }
+      ],
+      "competencyChecklist": [
+        "EHR documentation standards",
+        "Telemedicine communication",
+        "Workflow adherence",
+        "Escalation judgment",
+        "Compliance awareness",
+        "Time management"
+      ],
+      "signOff": [
+        "Trainer / Clinical Lead",
+        "RN Acknowledgement"
+      ],
+      "ongoingSupport": [
+        "Weekly or biweekly check-ins (first 30–60 days)",
+        "Refresher trainings as protocols change",
+        "Ongoing chart audits",
+        "CME/CE tracking (as applicable)",
+        "Performance reviews at 30/60/90 days"
+      ]
+    },
+    "Back Office MA": {
+      "title": "Training Schedule & Guide – PMP Checks & Pre-Charting",
+      "role": "Back Office Medical Assistant",
+      "primaryFocus": "PMP Review, Pre-Charting, Visit Readiness",
+      "duration": "1–2 weeks (adjustable by experience)",
+      "format": "Asynchronous Learning + Shadowing + Supervised Work",
+      "goal": "Prepare MA to independently complete accurate, compliant PMP checks and pre-chart visits efficiently and consistently",
+      "objectives": [
+        "Perform compliant PMP checks across assigned states",
+        "Accurately pre-chart visits according to SOPs",
+        "Identify and flag red-flag PMP findings",
+        "Prepare provider-ready charts prior to visits",
+        "Document findings clearly and consistently in the EHR",
+        "Escalate issues appropriately and in a timely manner"
+      ],
+      "preTraining": {
+        "administrative": [
+          "Employment paperwork completed",
+          "HIPAA and compliance training completed",
+          "Role-specific SOPs assigned"
+        ],
+        "systemAccess": [
+          "EHR access",
+          "PMP access for assigned states",
+          "Scheduling platform access",
+          "Internal communication tools",
+          "Knowledge base access"
+        ],
+        "technologyReadiness": [
+          "Secure device approved",
+          "Internet and login verification",
+          "Two-factor authentication (if required)"
+        ]
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "title": "Foundations & Observation",
+          "days": [
+            {
+              "day": 1,
+              "title": "Role Overview & Compliance",
+              "topics": [
+                "Back Office MA role and responsibilities",
+                "Importance of PMP accuracy and compliance",
+                "Scope of work vs provider responsibilities",
+                "HIPAA and patient data handling",
+                "Consequences of inaccurate PMP checks"
+              ],
+              "deliverables": [
+                "Policy acknowledgment",
+                "Compliance quiz (if applicable)"
+              ]
+            },
+            {
+              "day": 2,
+              "title": "PMP Systems Training",
+              "topics": [
+                "Overview of PMP purpose and regulations",
+                "State-specific PMP differences (as applicable)",
+                "Accessing PMP portals",
+                "Searching patients correctly",
+                "Identifying: Controlled substances, Prescriber counts, Pharmacy counts, Fill dates and quantities"
+              ],
+              "handsOn": [
+                "Practice PMP searches in test or historical cases"
+              ]
+            },
+            {
+              "day": 3,
+              "title": "Pre-Charting Workflow",
+              "topics": [
+                "Understanding visit types (new vs follow-up)",
+                "Reviewing patient intake forms",
+                "Reviewing medication history",
+                "Reviewing prior visit notes",
+                "Confirming labs and diagnostics",
+                "Preparing chart for provider review"
+              ],
+              "documentationStandards": [
+                "Where PMP findings are documented",
+                "Standard language/templates",
+                "Time-stamping and initials"
+              ]
+            },
+            {
+              "day": 4,
+              "title": "Red Flags & Escalations",
+              "pmpredfFlags": [
+                "Multiple prescribers",
+                "Early refills",
+                "High MME",
+                "Out-of-state fills"
+              ],
+              "otherRedFlags": [
+                "Intake or chart inconsistencies",
+                "Missing or expired labs",
+                "Licensing/state coverage issues"
+              ],
+              "escalationProtocol": [
+                "When to flag vs escalate",
+                "Who to notify",
+                "How to document escalations"
+              ]
+            },
+            {
+              "day": 5,
+              "title": "Shadowing & Review",
+              "activities": [
+                "Observe live PMP checks",
+                "Observe pre-charting workflow end-to-end",
+                "Review completed charts with trainer"
+              ]
+            }
+          ],
+          "checkpoint": "Trainer feedback, Knowledge review, Readiness for supervised work"
+        },
+        {
+          "week": 2,
+          "title": "Supervised Production",
+          "days": [
+            {
+              "day": 6,
+              "title": "Guided Pre-Charting",
+              "description": "Days 6–7: Complete PMP checks with trainer oversight, Pre-chart assigned visits, Receive real-time corrections and feedback. Focus Areas: Accuracy, Speed without sacrificing compliance, Clear documentation"
+            },
+            {
+              "day": 8,
+              "title": "Increased Independence",
+              "description": "Days 8–9: Complete assigned queue independently, Trainer audits completed charts, Address feedback and trends"
+            },
+            {
+              "day": 10,
+              "title": "Quality & Efficiency Review",
+              "topics": [
+                "Chart audit review",
+                "Error prevention strategies",
+                "Time management techniques",
+                "Final workflow questions"
+              ],
+              "finalAssessment": [
+                "Accuracy benchmark met",
+                "Escalation judgment appropriate",
+                "Documentation consistent"
+              ]
+            }
+          ]
+        }
+      ],
+      "competencyChecklist": [
+        "PMP access and search accuracy",
+        "Identifying controlled substances",
+        "Recognizing red flags",
+        "Pre-charting completeness",
+        "Proper documentation",
+        "Correct escalation pathways",
+        "Turnaround time expectations"
+      ],
+      "signOff": [
+        "Trainer / Supervisor",
+        "MA Acknowledgement"
+      ],
+      "ongoingSupport": [
+        "Daily chart audits (first 1–2 weeks post-training)",
+        "Weekly feedback check-ins",
+        "Ongoing SOP updates",
+        "Refresher training as PMP rules change",
+        "Performance metrics tracking"
+      ],
+      "referenceMaterials": [
+        "PMP State Access Guide",
+        "Red Flag Quick-Reference Sheet",
+        "Pre-Charting Checklist",
+        "Documentation Templates",
+        "Escalation Flowchart",
+        "Common Errors & Fixes Guide"
+      ]
+    },
+    "Pharmacy Liaison": {
+      "title": "Training Schedule & Guide – Pharmacy Requests & Coordination",
+      "role": "Pharmacy Liaison (MA)",
+      "primaryFocus": "Pharmacy Requests, Medication Coordination, Issue Resolution",
+      "duration": "1–2 weeks (adjustable based on experience)",
+      "format": "Asynchronous Learning + Shadowing + Supervised Production",
+      "goal": "Prepare MA to independently manage pharmacy communications accurately, efficiently, and compliantly while supporting providers and patients",
+      "objectives": [
+        "Receive, triage, and resolve pharmacy requests appropriately",
+        "Distinguish administrative vs clinical pharmacy requests",
+        "Communicate clearly with pharmacies, providers, and internal teams",
+        "Document pharmacy interactions accurately in the EHR",
+        "Escalate issues following approved workflows",
+        "Ensure medication requests align with provider orders and compliance requirements"
+      ],
+      "preTraining": {
+        "administrative": [
+          "Employment paperwork completed",
+          "HIPAA and compliance training completed",
+          "Pharmacy Liaison SOPs assigned"
+        ],
+        "systemAccess": [
+          "EHR access",
+          "Pharmacy portals (as applicable)",
+          "Fax systems",
+          "Messaging platforms",
+          "Knowledge base access"
+        ],
+        "technologyReadiness": [
+          "Secure device approved",
+          "Internet and login verification",
+          "Two-factor authentication (if required)"
+        ]
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "title": "Foundations & Observation",
+          "days": [
+            {
+              "day": 1,
+              "title": "Role Overview & Compliance",
+              "topics": [
+                "Pharmacy Liaison role and boundaries",
+                "MA scope vs provider authority",
+                "HIPAA and PHI handling",
+                "Common pharmacy communication types",
+                "Legal/compliance risks in pharmacy coordination"
+              ],
+              "deliverables": [
+                "Policy acknowledgment",
+                "Role boundaries quiz (if applicable)"
+              ]
+            },
+            {
+              "day": 2,
+              "title": "Pharmacy Workflow Fundamentals",
+              "pharmacyRequestTypes": [
+                "Refill requests",
+                "Prescription clarification",
+                "Prior authorization support (non-clinical)",
+                "Medication availability issues",
+                "Shipping or fulfillment questions"
+              ],
+              "prescriptionComponents": [
+                "Medication name and strength",
+                "Quantity and directions",
+                "Refills",
+                "Prescriber information"
+              ],
+              "handsOn": [
+                "Review sample pharmacy messages and faxes"
+              ]
+            },
+            {
+              "day": 3,
+              "title": "EHR Documentation & Ticket Handling",
+              "topics": [
+                "Where pharmacy requests enter the system",
+                "Assigning, tagging, and tracking requests",
+                "Standard documentation language",
+                "Time-stamping and initials",
+                "Closing loops and confirmation steps"
+              ],
+              "practice": [
+                "Mock documentation exercises"
+              ]
+            },
+            {
+              "day": 4,
+              "title": "Escalations & Problem Resolution",
+              "escalationTargets": [
+                "Provider",
+                "Nursing team",
+                "Clinical leadership"
+              ],
+              "redFlags": [
+                "Controlled substances discrepancies",
+                "Dose changes requested by pharmacy",
+                "Early refill requests",
+                "State or licensing conflicts"
+              ],
+              "communicationStandards": [
+                "Communication standards during escalations"
+              ],
+              "simulation": [
+                "Escalation scenarios and role-play"
+              ]
+            },
+            {
+              "day": 5,
+              "title": "Shadowing",
+              "activities": [
+                "Observe live pharmacy coordination",
+                "Observe provider handoffs",
+                "Review resolved tickets and timelines"
+              ]
+            }
+          ],
+          "checkpoint": "Trainer feedback, Knowledge review, Readiness assessment for supervised work"
+        },
+        {
+          "week": 2,
+          "title": "Supervised Production",
+          "days": [
+            {
+              "day": 6,
+              "title": "Guided Case Handling",
+              "description": "Days 6–7: Handle pharmacy requests with trainer oversight. Focus on: Accuracy, Timeliness, Clear communication, Proper escalation"
+            },
+            {
+              "day": 8,
+              "title": "Increased Independence",
+              "description": "Days 8–9: Manage assigned pharmacy queue independently, Trainer audits documentation and outcomes, Correct trends and errors"
+            },
+            {
+              "day": 10,
+              "title": "Quality & Efficiency Review",
+              "metrics": [
+                "Turnaround time",
+                "Reopen rates",
+                "Escalation appropriateness"
+              ],
+              "finalSteps": [
+                "Final workflow questions",
+                "Approval for independent work"
+              ]
+            }
+          ]
+        }
+      ],
+      "competencyChecklist": [
+        "Pharmacy request triage",
+        "Understanding prescription basics",
+        "Accurate EHR documentation",
+        "Appropriate escalation",
+        "Professional pharmacy communication",
+        "Compliance with scope of practice",
+        "Time management and prioritization"
+      ],
+      "signOff": [
+        "Trainer / Supervisor",
+        "MA Acknowledgement"
+      ],
+      "ongoingSupport": [
+        "Daily audits during first 1–2 weeks post-training",
+        "Weekly performance check-ins",
+        "SOP updates as pharmacy partners change",
+        "Refresher training for common issues",
+        "Performance reviews at 30/60/90 days"
+      ],
+      "referenceMaterials": [
+        "Pharmacy Communication Templates",
+        "Escalation Decision Tree",
+        "Prescription Basics Quick Guide",
+        "Common Pharmacy Issues & Resolutions",
+        "Documentation Examples"
+      ]
+    }
+  },
   "integrations": [
     {
       "name": "Systems Doc",
