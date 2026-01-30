@@ -188,6 +188,11 @@ function initializeFeatures() {
     initLazyLoading();
     initFirstDayChecklist();
     initIntegrations();
+    initKeyContacts();
+    initCompanyBasics();
+    initHomeSystems();
+    initDeadlines();
+    initGlossary();
     initRecentlyViewed();
     initResourceCategories();
     initPrintButtons();
@@ -385,6 +390,69 @@ function initThemeControls() {
     }
 }
 
+
+// Key Contacts (home page)
+function initKeyContacts() {
+    const list = document.getElementById('keyContactsList');
+    if (!list || !contentData.keyContacts) return;
+    
+    list.innerHTML = contentData.keyContacts.map(contact => `
+        <div class="key-contact-card">
+            <h3 class="key-contact-role">${contact.role}</h3>
+            <p class="key-contact-name">${contact.name}</p>
+            <a href="mailto:${contact.email}" class="key-contact-email">${contact.email}</a>
+            <p class="key-contact-note">${contact.note}</p>
+        </div>
+    `).join('');
+}
+
+// Company Basics (home page)
+function initCompanyBasics() {
+    const container = document.getElementById('companyBasicsContent');
+    if (!container || !contentData.companyBasics) return;
+    
+    const basics = contentData.companyBasics;
+    const payroll = basics.payroll ? `
+        <p><strong>Payroll & time off:</strong> <a href="${basics.payroll.url}" target="_blank" rel="noopener noreferrer">${basics.payroll.name}</a> — ${basics.payroll.description}</p>
+    ` : '';
+    const holidays = basics.holidays && basics.holidays.length ? `
+        <p><strong>Company holidays:</strong> ${basics.holidays.join(', ')}</p>
+    ` : '';
+    
+    container.innerHTML = `
+        <p class="company-basics-description">${basics.description}</p>
+        <div class="company-basics-details">
+            ${payroll}
+            ${holidays}
+        </div>
+    `;
+}
+
+// Home page systems list (from integrations)
+function initHomeSystems() {
+    const list = document.getElementById('homeSystemsList');
+    if (!list || !contentData.integrations) return;
+    
+    list.innerHTML = contentData.integrations.map(integration => `
+        <a href="${integration.url}" class="system-card" target="_blank" rel="noopener noreferrer">
+            <span class="system-icon">${integration.icon}</span>
+            <h3>${integration.name}</h3>
+            <p>${integration.description}</p>
+        </a>
+    `).join('');
+}
+
+// First week deadlines (home page)
+function initDeadlines() {
+    const list = document.getElementById('deadlinesList');
+    if (!list || !contentData.firstWeekDeadlines) return;
+    
+    list.innerHTML = contentData.firstWeekDeadlines.map(item => `
+        <li class="deadline-item">
+            <strong>${item.task}</strong> — ${item.when}
+        </li>
+    `).join('');
+}
 
 // Glossary
 function initGlossary() {

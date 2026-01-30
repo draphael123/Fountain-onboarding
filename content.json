@@ -8,6 +8,49 @@
       "dismissible": true
     }
   ],
+  "keyContacts": [
+    {
+      "role": "Account & access issues",
+      "name": "Daniel Raphael",
+      "email": "daniel@fountain.net",
+      "note": "Email and Slack access"
+    },
+    {
+      "role": "HR & onboarding",
+      "name": "HR Team",
+      "email": "hr@fountain.net",
+      "note": "Paperwork, policies, benefits"
+    },
+    {
+      "role": "IT support",
+      "name": "IT Support",
+      "email": "it-support@fountain.net",
+      "note": "Technical issues, logins"
+    }
+  ],
+  "companyBasics": {
+    "description": "Fountain is a concierge telemedicine platform specializing in Testosterone Replacement Therapy (TRT) and Hormone Replacement Therapy (HRT). We provide world-class care with 24/7 support, personalized treatment plans, and medication delivered to patients' doorsteps. Fountain Vitality Inc. is led by Dr. Doron Stember, board-certified physician and Chief Medical Officer.",
+    "payroll": {
+      "name": "Gusto",
+      "url": "https://login.gusto.com/",
+      "description": "Payroll, time off, and benefits"
+    },
+    "holidays": ["Christmas", "New Year's Day", "Thanksgiving"]
+  },
+  "firstWeekDeadlines": [
+    {
+      "task": "Complete HIPAA training",
+      "when": "By end of Week 1"
+    },
+    {
+      "task": "Submit I-9 and eligibility documents",
+      "when": "By end of Week 1"
+    },
+    {
+      "task": "Complete direct deposit setup in Gusto",
+      "when": "By end of Week 1"
+    }
+  ],
   "resources": [
     {
       "id": 1,
