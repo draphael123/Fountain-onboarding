@@ -1435,15 +1435,69 @@ button:focus {
     border-color: var(--primary-color);
 }
 
-/* Dark Mode */
+/* Dark Mode — warm, editorial palette (avoids flat gray “AI” look) */
 body.dark-mode {
-    --bg-white: #1a1a1a;
-    --bg-light: #2d2d2d;
-    --text-dark: #ffffff;
-    --text-light: #cccccc;
-    --border-color: #404040;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --shadow-lg: rgba(0, 0, 0, 0.4);
+    --bg-white: #1c1b1f;
+    --bg-light: #252328;
+    --text-dark: #e8e6e3;
+    --text-light: #a8a6a3;
+    --text-lighter: #6b6966;
+    --border-color: #3d3a42;
+    --primary-color: #a5b4fc;
+    --primary-dark: #818cf8;
+    --primary-light: #c7d2fe;
+    --secondary-color: #f9a8d4;
+    --accent-color: #6ee7b7;
+    --shadow: rgba(0, 0, 0, 0.25);
+    --shadow-lg: rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .navbar {
+    background: #1c1b1f;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(180deg, #252328 0%, #1c1b1f 100%);
+}
+
+body.dark-mode .section-header h2 {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark-mode .key-contact-card,
+body.dark-mode .system-card,
+body.dark-mode .glossary-item,
+body.dark-mode .deadline-item {
+    background: #252328;
+    border-color: var(--border-color);
+}
+
+body.dark-mode .action-card-content,
+body.dark-mode .contact-card,
+body.dark-mode .program-card {
+    background: #252328;
+    border: 1px solid var(--border-color);
+}
+
+body.dark-mode .quick-link-card {
+    background: #252328;
+    border: 1px solid var(--border-color);
+}
+
+body.dark-mode .quick-link-card:hover,
+body.dark-mode .system-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 20px rgba(165, 180, 252, 0.12);
+}
+
+body.dark-mode .footer {
+    background: #161518;
+    border-top: 1px solid var(--border-color);
 }
 
 /* High Contrast Mode */
